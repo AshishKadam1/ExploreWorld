@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nessus Travels</title>
-
+    <title>Nessus Travels - Home</title>
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         :root {
-            --blue: #078bd7;
-            --dark: #222;
-            --light: #f7f9fc;
+            --blue-primary: #2563eb;
+            --blue-hover: #1d4ed8;
+            --dark-heading: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --bg-light: #f8fafc;
         }
 
         body {
-            background: var(--light);
-            color: var(--dark);
+            background-color: var(--bg-light);
+            color: var(--dark-heading);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* ================= NAVBAR ================= */
-
+        /* ================= HEADER ================= */
         header {
             width: 100%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,.1);
+            background: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             position: fixed;
             top: 0;
             z-index: 1000;
@@ -39,512 +41,276 @@
 
         .navbar {
             max-width: 1200px;
-            height: 90px;
-            margin: auto;
-            padding: 0 20px;
-
+            height: 80px;
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        /* Logo */
-
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-
+            gap: 12px;
             text-decoration: none;
-            color: var(--blue);
-            font-size: 22px;
-            font-weight: bold;
+            color: var(--blue-primary);
+            font-size: 20px;
+            font-weight: 700;
         }
 
         .logo-icon {
-            width: 60px;
-            height: 60px;
-
-            border: 5px solid var(--blue);
+            width: 44px;
+            height: 44px;
+            border: 3px solid var(--blue-primary);
             border-radius: 50%;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
-            font-size: 20px;
+            font-size: 16px;
+            font-weight: 800;
         }
 
         .logo-text span {
             display: block;
+            line-height: 1.1;
         }
-
-        /* Navigation */
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 35px;
+            gap: 32px;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--dark-heading);
             font-weight: 600;
-            font-size: 17px;
+            font-size: 15px;
+            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--blue);
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--blue-primary);
         }
 
+        .login-nav-btn {
+            background-color: var(--blue-primary);
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
 
-        /* ================= HERO ================= */
+        .login-nav-btn:hover {
+            background-color: var(--blue-hover);
+        }
 
-        .hero {
-
-            height: 650px;
-
-            margin-top: 90px;
-
-            background:
-                linear-gradient(
-                    rgba(0,0,0,.15),
-                    rgba(0,0,0,.15)
-                ),
-                url("bus.jpg");
-
-            background-size: cover;
-            background-position: center;
-
+        /* ================= HERO & SEARCH CARD ================= */
+        .main-container {
+            flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 130px 20px 60px;
+        }
 
+        .hero-title {
             text-align: center;
+            margin-bottom: 32px;
         }
 
-        .hero-content {
-            color: white;
-
-            background: rgba(0,0,0,.25);
-
-            padding: 25px 40px;
-            border-radius: 10px;
+        .hero-title h1 {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--dark-heading);
+            margin-bottom: 8px;
         }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+        .hero-title p {
+            font-size: 16px;
+            color: var(--text-muted);
         }
 
-        .hero-content p {
-            font-size: 20px;
+        /* Card matching image theme */
+        .search-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 900px;
+            padding: 36px 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
 
-
-        /* ================= BOOKING SEARCH ================= */
-
-        .search-box {
-
-            width: min(90%, 1100px);
-
-            background: white;
-
-            margin: -35px auto 60px;
-
-            position: relative;
-
-            padding: 20px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 5px 25px rgba(0,0,0,.15);
-
+        .search-grid {
             display: grid;
-
-            grid-template-columns:
-                1fr
-                40px
-                1fr
-                1fr
-                1fr
-                150px;
-
-            gap: 10px;
-
+            grid-template-columns: 1fr 48px 1fr 1fr;
+            gap: 16px;
             align-items: end;
         }
 
-
-        .search-item label {
-
-            display: block;
-
-            font-size: 13px;
-
-            font-weight: bold;
-
-            color: #666;
-
-            margin-bottom: 6px;
+        .input-group {
+            display: flex;
+            flex-direction: column;
         }
 
-
-        .search-item input {
-
-            width: 100%;
-
-            height: 45px;
-
-            padding: 10px;
-
-            border: 1px solid #ddd;
-
-            border-radius: 7px;
-
+        .input-group label {
             font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-heading);
+            margin-bottom: 8px;
         }
 
-
-        .search-item input:focus {
-
-            outline: none;
-
-            border-color: var(--blue);
-        }
-
-
-        /* Swap Button */
-
-        .swap {
-
-            width: 38px;
-            height: 38px;
-
-            border-radius: 50%;
-
-            border: 1px solid #777;
-
-            background: white;
-
-            color: #075bd8;
-
-            font-size: 22px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            margin-bottom: 3px;
-        }
-
-
-        /* Search Button */
-
-        .search-btn {
-
-            height: 45px;
-
-            background: black;
-
-            color: white;
-
-            border: none;
-
-            border-radius: 0;
-
+        .input-group input {
+            width: 100%;
+            height: 48px;
+            padding: 0 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
             font-size: 15px;
+            color: var(--dark-heading);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
 
-            font-weight: bold;
+        .input-group input::placeholder {
+            color: #94a3b8;
+        }
 
+        .input-group input:focus {
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .swap-btn {
+            height: 48px;
+            width: 48px;
+            border: 1px solid var(--border-color);
+            background: #ffffff;
+            border-radius: 10px;
+            color: var(--blue-primary);
+            font-size: 18px;
             cursor: pointer;
-        }
-
-        .search-btn:hover {
-
-            background: var(--blue);
-        }
-
-
-        /* ================= PACKAGES TAB ================= */
-
-        .packages-tab {
-
-            position: fixed;
-
-            left: 0;
-
-            top: 45%;
-
-            background: var(--blue);
-
-            color: white;
-
-            padding: 15px 10px;
-
-            writing-mode: vertical-rl;
-
-            border-radius: 0 5px 5px 0;
-
-            z-index: 500;
-        }
-
-
-        /* ================= WHATSAPP ================= */
-
-        .whatsapp {
-
-            position: fixed;
-
-            right: 20px;
-
-            bottom: 20px;
-
-            width: 50px;
-            height: 50px;
-
-            background: #20c863;
-
-            color: white;
-
-            border-radius: 50%;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
-            font-size: 25px;
-
-            z-index: 500;
+            transition: all 0.2s ease;
         }
 
+        .swap-btn:hover {
+            background-color: #f1f5f9;
+        }
 
-        /* ================= MOBILE ================= */
+        .submit-btn {
+            width: 100%;
+            height: 50px;
+            background-color: var(--blue-primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 24px;
+            transition: background-color 0.2s ease;
+        }
 
-        @media(max-width: 900px) {
+        .submit-btn:hover {
+            background-color: var(--blue-hover);
+        }
 
+        /* ================= MOBILE RESPONSIVE ================= */
+        @media (max-width: 850px) {
             .navbar {
                 height: auto;
-                padding: 15px;
-
+                padding: 16px;
                 flex-direction: column;
-
-                gap: 15px;
+                gap: 16px;
             }
 
-            .nav-links {
-                gap: 15px;
-
-                flex-wrap: wrap;
-
-                justify-content: center;
+            .main-container {
+                padding-top: 170px;
             }
 
-            .nav-links a {
-                font-size: 14px;
-            }
-
-            .hero {
-                margin-top: 130px;
-                height: 450px;
-            }
-
-            .hero-content h1 {
-                font-size: 35px;
-            }
-
-            .search-box {
-
+            .search-grid {
                 grid-template-columns: 1fr;
-
-                width: 90%;
-
-                margin-top: -20px;
             }
 
-            .swap {
+            .swap-btn {
                 margin: auto;
-
                 transform: rotate(90deg);
             }
-
-            .search-btn {
-                width: 100%;
-            }
         }
-
     </style>
 </head>
-
-
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
-<header>
-
-    <nav class="navbar">
-
-        <!-- Logo -->
-
-        <a href="#" class="logo">
-
-            <div class="logo-icon">
-                MT
-            </div>
-
-            <div class="logo-text">
-                <span>NESSUS TOURS</span>
-                <span>TRAVELS</span>
-            </div>
-
-        </a>
-
-
-        <!-- Navigation -->
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-
-            <li>
-                <a href="bookings.html">Manage Bookings</a>
-            </li>
-
-            <li>
-                <a href="contact.html">Contact</a>
-            </li>
-
-            <li>
-                <a href="login.html">Login</a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h1>Travel With Comfort</h1>
-
-        <p>
-            Book your journey with Mahalaxmi Travels
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- ================= BOOKING SEARCH ================= -->
-
-<form class="search-box">
-
-    <div class="search-item">
-
-        <label for="origin">
-            Origin
-        </label>
-
-        <input
-            type="text"
-            id="origin"
-            placeholder="Enter origin"
-        >
-
-    </div>
-
-
-    <div class="swap">
-        ⇄
-    </div>
-
-
-    <div class="search-item">
-
-        <label for="destination">
-            Destination
-        </label>
-
-        <input
-            type="text"
-            id="destination"
-            placeholder="Enter destination"
-        >
-
-    </div>
-
-
-    <div class="search-item">
-
-        <label for="date">
-            Journey Date
-        </label>
-
-        <input
-            type="date"
-            id="date"
-        >
-
-    </div>
-
-
-    <div class="search-item">
-
-        <label for="return">
-            Return
-        </label>
-
-        <input
-            type="date"
-            id="return"
-        >
-
-    </div>
-
-
-    <button class="search-btn" type="submit">
-
-        SEARCH
-
-    </button>
-
-</form>
-
-
-<!-- ================= PACKAGES ================= -->
-
-<div class="packages-tab">
-
-    📦 Packages
-
-</div>
-
-
-<!-- ================= WHATSAPP ================= -->
-
-<div class="whatsapp">
-
-    ☎
-
-</div>
-
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="logo">
+                <div class="logo-icon">MT</div>
+                <div class="logo-text">
+                    <span>NESSUS TOURS</span>
+                    <span>TRAVELS</span>
+                </div>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="bookings.html">Manage Bookings</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="login-nav-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-container">
+
+        <div class="hero-title">
+            <h1>Travel With Comfort</h1>
+            <p>Book your journey seamlessly with Nessus Travels</p>
+        </div>
+
+        <div class="search-card">
+            <form action="login.html" method="GET">
+                <div class="search-grid">
+                    
+                    <!-- Origin -->
+                    <div class="input-group">
+                        <label for="origin">Origin</label>
+                        <input type="text" id="origin" placeholder="e.g. Mumbai" required>
+                    </div>
+
+                    <!-- Swap Icon -->
+                    <button type="button" class="swap-btn" title="Swap stations">⇄</button>
+
+                    <!-- Destination -->
+                    <div class="input-group">
+                        <label for="destination">Destination</label>
+                        <input type="text" id="destination" placeholder="e.g. Pune" required>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="input-group">
+                        <label for="date">Journey Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">Search Buses</button>
+            </form>
+        </div>
+
+    </main>
 
 </body>
 </html>
