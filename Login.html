@@ -16,8 +16,24 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-gray-100">
+  <!-- Background iframe showing home.html -->
+  <iframe 
+    id="bg-frame" 
+    src="home.html" 
+    title="Home page background"
+    style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      z-index: 0;
+      pointer-events: none;
+    "
+  ></iframe>
 
-  <div id="root"></div>
+  <div id="root" style="position: relative; z-index: 10;"></div>
 
   <script type="text/babel">
     const { useState } = React;
@@ -45,7 +61,18 @@
       };
 
       return (
-        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
+        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative">
+          {/* Close button - top right */}
+          <button
+            onClick={() => window.location.href = 'home.html'}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Close and go to home page"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
           <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Welcome Back</h2>
           <p className="text-sm text-gray-500 text-center mb-6">Sign in to access your travel bookings</p>
 
@@ -150,7 +177,18 @@
       };
 
       return (
-        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
+        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative">
+          {/* Close button - top right */}
+          <button
+            onClick={() => window.location.href = 'home.html'}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Close and go to home page"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
           <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Create an Account</h2>
           <p className="text-sm text-gray-500 text-center mb-6">Join to start booking bus and travel services</p>
 
@@ -274,7 +312,18 @@
       };
 
       return (
-        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
+        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative">
+          {/* Close button - top right */}
+          <button
+            onClick={() => window.location.href = 'home.html'}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            aria-label="Close and go to home page"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
           <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Reset Password</h2>
           <p className="text-sm text-gray-500 text-center mb-6">
             {step === 1 ? 'Enter your email to receive an OTP code' : 'Enter the OTP sent to your email and your new password'}
