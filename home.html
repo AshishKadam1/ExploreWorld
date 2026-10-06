@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nessus Tours & Travels</title>
-
 
     <style>
 
@@ -24,35 +19,29 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-
         :root {
-
             --primary: #087e8b;
             --primary-dark: #065a63;
-
             --secondary: #0b4f6c;
-
             --accent: #00a9c7;
-
             --dark: #172f3d;
-
             --text: #263943;
-
             --light: #f5f9fa;
-
             --white: #ffffff;
-
             --border: #d8e4e8;
-
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-
             background: var(--light);
-
             color: var(--text);
+        }
 
+        a {
+            text-decoration: none;
         }
 
 
@@ -61,43 +50,30 @@
         ===================================================== */
 
         header {
-
             width: 100%;
-
             height: 82px;
-
             background: white;
 
             position: fixed;
-
             top: 0;
-
             left: 0;
 
             z-index: 1000;
 
             box-shadow:
                 0 2px 15px rgba(0,0,0,0.10);
-
         }
 
-
         .navbar {
-
             max-width: 1250px;
-
             height: 82px;
 
             margin: auto;
-
             padding: 0 25px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
         }
 
 
@@ -106,23 +82,20 @@
         ===================================================== */
 
         .logo {
-
             display: flex;
-
             align-items: center;
-
             gap: 10px;
 
             text-decoration: none;
+            cursor: pointer;
 
+            position: relative;
+            z-index: 2000;
         }
 
-
         .logo-icon {
-
-            width: 54px;
-
-            height: 54px;
+            width: 58px;
+            height: 58px;
 
             border-radius: 50%;
 
@@ -134,55 +107,46 @@
                 );
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             color: white;
 
             font-weight: 800;
-
-            font-size: 16px;
+            font-size: 18px;
 
             border: 4px solid white;
 
             box-shadow:
                 0 3px 10px rgba(0,0,0,0.18);
 
+            transition: 0.3s;
         }
 
+        .logo:hover .logo-icon {
+            transform: scale(1.05);
+        }
 
         .logo-text {
-
             line-height: 1.1;
-
         }
 
-
         .logo-main {
-
             display: block;
 
             color: var(--secondary);
 
-            font-size: 19px;
-
+            font-size: 20px;
             font-weight: 800;
-
         }
 
-
         .logo-sub {
-
             display: block;
 
             color: var(--primary);
 
             font-size: 16px;
-
             font-weight: 700;
-
         }
 
 
@@ -191,419 +155,96 @@
         ===================================================== */
 
         .nav-links {
-
             list-style: none;
 
             display: flex;
-
             align-items: center;
 
             gap: 32px;
-
         }
 
-
         .nav-links a {
-
             text-decoration: none;
 
             color: var(--dark);
 
             font-size: 15px;
-
             font-weight: 600;
 
             transition: 0.3s;
-
         }
-
 
         .nav-links a:hover {
-
             color: var(--primary);
-
         }
 
-
         .login-button {
-
             background: var(--primary);
 
             color: white !important;
 
-            padding: 11px 23px;
+            padding: 12px 25px;
 
-            border-radius: 24px;
-
+            border-radius: 25px;
         }
 
-
         .login-button:hover {
-
             background: var(--primary-dark);
-
         }
 
 
         /* =====================================================
            HERO
         ===================================================== */
-/* =====================================================
-   HERO - CLEAN TRAVEL BACKGROUND
-===================================================== */
 
-.hero {
-    height: 505px;
-    margin-top: 82px;
+        .hero {
+            height: 555px;
 
-    position: relative;
-    overflow: hidden;
+            margin-top: 82px;
 
-    display: flex;
-    align-items: center;
+            position: relative;
 
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,0.78) 0%,
-            rgba(255,255,255,0.48) 38%,
-            rgba(255,255,255,0.08) 75%
-        ),
-        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1900&q=90");
+            overflow: hidden;
 
-    background-size: cover;
+            display: flex;
+            align-items: center;
 
-    background-position: center;
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.80) 0%,
+                    rgba(255,255,255,0.48) 38%,
+                    rgba(255,255,255,0.08) 75%
+                ),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1900&q=90");
 
-    background-repeat: no-repeat;
-}
-
-
-/* =====================================================
-   HERO CONTENT
-===================================================== */
-
-.hero-content {
-
-    width: 1200px;
-
-    max-width: 90%;
-
-    margin: auto;
-
-    position: relative;
-
-    z-index: 5;
-
-    padding-bottom: 30px;
-
-}
-
-
-/* =====================================================
-   MAIN HEADING
-===================================================== */
-
-.hero-content h1 {
-
-    font-size: 58px;
-
-    line-height: 1.1;
-
-    max-width: 700px;
-
-    color: #073b4c;
-
-    font-weight: 800;
-
-    margin-bottom: 18px;
-
-    text-shadow:
-        0 2px 3px rgba(255,255,255,0.5);
-
-}
-
-
-/* =====================================================
-   SUBTITLE
-===================================================== */
-
-.hero-content p {
-
-    font-size: 21px;
-
-    max-width: 600px;
-
-    color: #15566b;
-
-    margin-bottom: 28px;
-
-    font-weight: 500;
-
-}
-
-
-/* =====================================================
-   FEATURES
-===================================================== */
-
-.hero-features {
-
-    display: flex;
-
-    gap: 28px;
-
-    flex-wrap: wrap;
-
-}
-
-
-.hero-feature {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    font-size: 15px;
-
-    font-weight: 700;
-
-    color: #073b4c;
-
-}
-
-
-/* =====================================================
-   FEATURE ICON
-===================================================== */
-
-.hero-feature-icon {
-
-    width: 32px;
-
-    height: 32px;
-
-    background: #087e8b;
-
-    color: white;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-weight: bold;
-
-    box-shadow:
-        0 3px 8px rgba(0,0,0,0.15);
-
-}
-
-
-/* =====================================================
-   BOTTOM FADE
-===================================================== */
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    right: 0;
-
-    bottom: 0;
-
-    height: 90px;
-
-    background:
-        linear-gradient(
-            transparent,
-            #f5f9fa
-        );
-
-    z-index: 2;
-
-}
-
-/* Bottom fade */
-
-.hero::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 100px;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(245, 249, 250, 0.95)
-        );
-
-    z-index: 2;
-}
-
-
-/* Hero content */
-
-.hero-content {
-
-    width: 1200px;
-
-    max-width: 90%;
-
-    margin: auto;
-
-    position: relative;
-
-    z-index: 5;
-
-    padding-bottom: 40px;
-
-}
-
-
-/* Main heading */
-
-.hero-content h1 {
-
-    font-size: 58px;
-
-    line-height: 1.1;
-
-    max-width: 750px;
-
-    color: #ffffff;
-
-    font-weight: 800;
-
-    margin-bottom: 18px;
-
-    /* Shadow makes text clearly visible */
-
-    text-shadow:
-        0 3px 8px rgba(0,0,0,0.65);
-
-}
-
-
-/* Subtitle */
-
-.hero-content p {
-
-    font-size: 22px;
-
-    color: #ffffff;
-
-    margin-bottom: 28px;
-
-    font-weight: 500;
-
-    text-shadow:
-        0 2px 6px rgba(0,0,0,0.7);
-
-}
-
-
-/* Hero features */
-
-.hero-features {
-
-    display: flex;
-
-    gap: 28px;
-
-    flex-wrap: wrap;
-
-}
-
-
-.hero-feature {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    font-size: 15px;
-
-    font-weight: 600;
-
-    color: #ffffff;
-
-    text-shadow:
-        0 2px 5px rgba(0,0,0,0.7);
-
-}
-
-
-/* Feature circles */
-
-.hero-feature-icon {
-
-    width: 32px;
-
-    height: 32px;
-
-    background: #00a9c7;
-
-    color: white;
-
-    border-radius: 50%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-weight: bold;
-
-    box-shadow:
-        0 3px 8px rgba(0,0,0,0.25);
-
-}
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
         .hero::after {
-
             content: "";
 
             position: absolute;
 
             left: 0;
-
             right: 0;
-
             bottom: 0;
 
-            height: 110px;
+            height: 120px;
 
             background:
                 linear-gradient(
                     transparent,
-                    rgba(245,249,250,0.95)
+                    rgba(245,249,250,0.98)
                 );
 
+            z-index: 2;
         }
 
-
         .hero-content {
-
             width: 1200px;
-
             max-width: 90%;
 
             margin: auto;
@@ -612,72 +253,63 @@
 
             z-index: 5;
 
-            padding-bottom: 60px;
-
+            padding-bottom: 50px;
         }
 
-
         .hero-content h1 {
-
-            font-size: 52px;
+            font-size: 58px;
 
             line-height: 1.1;
 
-            max-width: 620px;
+            max-width: 750px;
 
-            color: #163a4c;
+            color: #073b4c;
 
             font-weight: 800;
 
-            margin-bottom: 15px;
+            margin-bottom: 18px;
 
+            text-shadow:
+                0 3px 6px rgba(255,255,255,0.7);
         }
-
 
         .hero-content p {
+            font-size: 21px;
 
-            font-size: 20px;
+            max-width: 650px;
 
-            color: #214c5e;
+            color: #15566b;
 
-            margin-bottom: 24px;
+            margin-bottom: 28px;
 
+            font-weight: 500;
         }
-
 
         .hero-features {
-
             display: flex;
 
-            gap: 25px;
+            gap: 28px;
 
             flex-wrap: wrap;
-
         }
 
-
         .hero-feature {
-
             display: flex;
 
             align-items: center;
 
-            gap: 8px;
+            gap: 9px;
 
-            font-size: 14px;
+            font-size: 15px;
 
-            font-weight: 600;
+            font-weight: 700;
 
-            color: #244452;
-
+            color: #073b4c;
         }
 
-
         .hero-feature-icon {
-
-            width: 27px;
-
-            height: 27px;
+            width: 32px;
+            height: 32px;
 
             background: var(--primary);
 
@@ -688,9 +320,12 @@
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
+            font-weight: bold;
+
+            box-shadow:
+                0 3px 8px rgba(0,0,0,0.18);
         }
 
 
@@ -699,10 +334,9 @@
         ===================================================== */
 
         .search-box {
-
             width: min(94%, 1150px);
 
-            margin: -55px auto 55px;
+            margin: -55px auto 60px;
 
             position: relative;
 
@@ -712,7 +346,7 @@
 
             border-radius: 20px;
 
-            padding: 22px;
+            padding: 25px;
 
             box-shadow:
                 0 10px 35px rgba(0,50,70,0.18);
@@ -720,7 +354,6 @@
             display: grid;
 
             grid-template-columns:
-
                 1.2fr
                 50px
                 1.2fr
@@ -731,12 +364,9 @@
             gap: 10px;
 
             align-items: end;
-
         }
 
-
         .search-item label {
-
             display: block;
 
             font-size: 13px;
@@ -746,23 +376,16 @@
             color: #52656e;
 
             margin-bottom: 7px;
-
         }
-
 
         .input-wrapper {
-
             position: relative;
-
         }
 
-
         .input-icon {
-
             position: absolute;
 
             left: 13px;
-
             top: 50%;
 
             transform: translateY(-50%);
@@ -770,13 +393,10 @@
             font-size: 17px;
 
             z-index: 2;
-
         }
-
 
         .search-item select,
         .search-item input {
-
             width: 100%;
 
             height: 53px;
@@ -794,29 +414,23 @@
             outline: none;
 
             font-size: 14px;
-
         }
-
 
         .search-item select:focus,
         .search-item input:focus {
-
             border-color: var(--primary);
 
             box-shadow:
                 0 0 0 3px rgba(8,126,139,0.10);
-
         }
 
 
         /* =====================================================
-           SWAP
+           SWAP BUTTON
         ===================================================== */
 
         .swap {
-
             width: 42px;
-
             height: 42px;
 
             border-radius: 50%;
@@ -834,24 +448,19 @@
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             margin-bottom: 5px;
 
             transition: 0.3s;
-
         }
 
-
         .swap:hover {
-
             background: var(--primary);
 
             color: white;
 
             transform: rotate(180deg);
-
         }
 
 
@@ -860,7 +469,6 @@
         ===================================================== */
 
         .search-btn {
-
             height: 53px;
 
             border: none;
@@ -878,19 +486,15 @@
             cursor: pointer;
 
             transition: 0.3s;
-
         }
 
-
         .search-btn:hover {
-
             background: var(--primary-dark);
 
             transform: translateY(-2px);
 
             box-shadow:
                 0 8px 20px rgba(8,126,139,0.25);
-
         }
 
 
@@ -899,68 +503,45 @@
         ===================================================== */
 
         .offers-section {
-
             max-width: 1200px;
 
-            margin: 0 auto 60px;
+            margin: 0 auto 65px;
 
             padding: 0 20px;
-
         }
 
-
         .offers-header {
-
             display: flex;
 
             align-items: center;
-
             justify-content: space-between;
 
             margin-bottom: 22px;
-
         }
 
-
         .offers-header h2 {
-
             font-size: 28px;
 
             color: #182b35;
-
         }
 
-
-        .offers-header a {
-
+        .offers-header span {
             color: var(--primary);
 
-            font-size: 15px;
+            font-size: 14px;
 
             font-weight: 700;
-
-            text-decoration: underline;
-
         }
 
-
-        /* =====================================================
-           OFFER TABS
-        ===================================================== */
-
         .offer-tabs {
-
             display: flex;
 
             gap: 12px;
 
             margin-bottom: 20px;
-
         }
 
-
         .offer-tab {
-
             padding: 9px 22px;
 
             border-radius: 10px;
@@ -976,21 +557,15 @@
             cursor: pointer;
 
             transition: 0.3s;
-
         }
 
-
         .offer-tab:hover {
-
             border-color: var(--primary);
 
             color: var(--primary);
-
         }
 
-
         .offer-tab.active {
-
             background: #dff5f7;
 
             color: var(--primary);
@@ -998,33 +573,19 @@
             border-color: #dff5f7;
 
             font-weight: 700;
-
         }
 
-
-        /* =====================================================
-           OFFER GRID
-        ===================================================== */
-
         .offers-container {
-
             display: grid;
 
             grid-template-columns:
                 repeat(4, 1fr);
 
             gap: 15px;
-
         }
 
-
-        /* =====================================================
-           OFFER CARD
-        ===================================================== */
-
         .offer-card {
-
-            height: 248px;
+            height: 250px;
 
             position: relative;
 
@@ -1035,96 +596,60 @@
             padding: 19px;
 
             transition: 0.3s;
-
         }
 
-
         .offer-card:hover {
-
             transform: translateY(-5px);
 
             box-shadow:
                 0 12px 28px rgba(0,0,0,0.12);
-
         }
 
-
         .offer-card-1 {
-
             background:
                 linear-gradient(
                     135deg,
                     #d8f1f4,
                     #b9e5ea
                 );
-
         }
 
-
         .offer-card-2 {
-
             background:
                 linear-gradient(
                     135deg,
                     #d4eef5,
                     #b4dfea
                 );
-
         }
 
-
         .offer-card-3 {
-
             background:
                 linear-gradient(
                     135deg,
                     #d9f4ff,
                     #b9e8f6
                 );
-
         }
 
-
         .offer-card-4 {
-
             background:
                 linear-gradient(
                     135deg,
                     #e4f5ee,
                     #c7e9db
                 );
-
         }
-
-
-        .offer-card-5 {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #e9e1f7,
-                    #d1c5ec
-                );
-
-        }
-
-
-        /* =====================================================
-           DECORATIVE DOT PATTERN
-        ===================================================== */
 
         .offer-card::before {
-
             content: "";
 
             position: absolute;
 
             width: 220px;
-
             height: 220px;
 
             right: -80px;
-
             top: -80px;
 
             border-radius: 50%;
@@ -1138,27 +663,17 @@
             background-size: 8px 8px;
 
             opacity: 0.7;
-
         }
 
-
-        /* =====================================================
-           OFFER TEXT
-        ===================================================== */
-
         .offer-text {
-
             position: relative;
 
             z-index: 10;
 
             width: 68%;
-
         }
 
-
         .offer-type {
-
             display: inline-block;
 
             background: #5b6265;
@@ -1174,12 +689,9 @@
             font-weight: 700;
 
             margin-bottom: 13px;
-
         }
 
-
         .offer-card h3 {
-
             font-size: 18px;
 
             line-height: 1.35;
@@ -1187,27 +699,17 @@
             color: #182a32;
 
             margin-bottom: 13px;
-
         }
 
-
         .offer-card p {
-
             font-size: 13px;
 
             color: #4c626a;
 
             margin-bottom: 18px;
-
         }
 
-
-        /* =====================================================
-           COUPON
-        ===================================================== */
-
         .coupon-code {
-
             display: inline-flex;
 
             align-items: center;
@@ -1226,14 +728,10 @@
 
             box-shadow:
                 0 3px 9px rgba(0,0,0,0.07);
-
         }
 
-
         .coupon-icon {
-
             font-size: 18px;
-
         }
 
 
@@ -1242,39 +740,26 @@
         ===================================================== */
 
         .bus-illustration {
-
             position: absolute;
 
             width: 155px;
-
             height: 95px;
 
             right: 5px;
-
             bottom: 15px;
 
             z-index: 5;
 
             transform: rotate(-2deg);
-
-            filter:
-                drop-shadow(
-                    0 8px 5px rgba(0,0,0,0.18)
-                );
-
         }
 
-
         .bus-body {
-
             position: absolute;
 
             width: 135px;
-
             height: 57px;
 
             right: 5px;
-
             bottom: 19px;
 
             border-radius: 13px 17px 7px 7px;
@@ -1287,18 +772,13 @@
                 );
 
             border: 3px solid #17313b;
-
         }
 
-
         .bus-window {
-
             position: absolute;
 
             top: 7px;
-
             left: 13px;
-
             right: 11px;
 
             height: 24px;
@@ -1308,114 +788,85 @@
             border-radius: 6px;
 
             overflow: hidden;
-
         }
 
-
         .bus-window::after {
-
             content: "";
 
             position: absolute;
 
             left: 35px;
-
             top: 0;
 
             width: 3px;
-
             height: 100%;
 
             background: #79d8e5;
-
         }
 
-
         .bus-front {
-
             position: absolute;
 
             right: -3px;
-
             bottom: 9px;
 
             width: 20px;
-
             height: 26px;
 
             background: #0c5864;
 
             border-radius: 5px;
-
         }
 
-
         .bus-light {
-
             position: absolute;
 
             right: 0;
-
             bottom: 17px;
 
             width: 6px;
-
             height: 7px;
 
             background: #fff;
 
             border-radius: 50%;
-
         }
 
-
         .bus-wheel {
-
             position: absolute;
 
-            bottom: 4px;
+            width: 25px;
+            height: 25px;
 
-            width: 22px;
+            bottom: 5px;
 
-            height: 22px;
-
-            background: #172a31;
+            background: #172f3d;
 
             border-radius: 50%;
 
-            border: 4px solid #e7f1f3;
-
+            border: 5px solid #65777c;
         }
-
 
         .bus-wheel-1 {
-
             left: 18px;
-
         }
 
-
         .bus-wheel-2 {
-
             right: 20px;
-
         }
 
 
         /* =====================================================
-           WEEKEND BADGE
+           WEEKEND OFFER
         ===================================================== */
 
         .weekend-badge {
-
             position: absolute;
 
             right: 13px;
-
             bottom: 18px;
 
             width: 115px;
-
             height: 115px;
 
             border-radius: 50%;
@@ -1436,7 +887,6 @@
             flex-direction: column;
 
             align-items: center;
-
             justify-content: center;
 
             text-align: center;
@@ -1447,40 +897,28 @@
 
             box-shadow:
                 0 7px 15px rgba(0,80,100,0.25);
-
-            z-index: 5;
-
         }
-
 
         .weekend-badge span {
-
             font-size: 11px;
-
         }
 
-
         .weekend-badge strong {
-
             font-size: 17px;
-
         }
 
 
         /* =====================================================
-           CARD 4 PAYMENT IMAGE
+           PAYMENT CARD
         ===================================================== */
 
         .payment-card-icon {
-
             position: absolute;
 
             right: 15px;
-
             bottom: 25px;
 
             width: 120px;
-
             height: 75px;
 
             background: white;
@@ -1491,20 +929,14 @@
 
             box-shadow:
                 0 7px 15px rgba(0,0,0,0.12);
-
-            z-index: 5;
-
         }
 
-
         .payment-card-icon::before {
-
             content: "NESSUS PAY";
 
             position: absolute;
 
             left: 10px;
-
             top: 10px;
 
             font-size: 9px;
@@ -1512,177 +944,121 @@
             font-weight: 800;
 
             color: var(--primary);
-
         }
 
-
         .payment-card-icon::after {
-
             content: "•••• 4521";
 
             position: absolute;
 
             left: 10px;
-
             bottom: 12px;
 
             font-size: 10px;
 
             color: #555;
-
         }
 
 
         /* =====================================================
-           TRAIN
-        ===================================================== */
-
-        .train-illustration {
-
-            position: absolute;
-
-            right: 5px;
-
-            bottom: 15px;
-
-            font-size: 82px;
-
-            z-index: 5;
-
-        }
-
-
-        /* =====================================================
-           CITIES
+           DESTINATIONS
         ===================================================== */
 
         .cities-section {
-
             max-width: 1200px;
 
-            margin: 0 auto 60px;
+            margin: 0 auto 70px;
 
             padding: 0 20px;
-
         }
-
 
         .section-heading {
-
             text-align: center;
 
-            margin-bottom: 25px;
-
+            margin-bottom: 30px;
         }
-
 
         .section-heading h2 {
+            font-size: 30px;
 
-            font-size: 28px;
+            color: #182b35;
 
-            color: var(--dark);
-
-            margin-bottom: 7px;
-
+            margin-bottom: 8px;
         }
-
 
         .section-heading p {
+            color: #62747c;
 
-            color: #687a82;
-
-            font-size: 14px;
-
+            font-size: 15px;
         }
 
-
         .cities {
-
             display: grid;
 
             grid-template-columns:
                 repeat(3, 1fr);
 
             gap: 20px;
-
         }
 
-
         .city-card {
-
             background: white;
 
-            border: 1px solid #e1ecef;
+            border: 1px solid var(--border);
 
             border-radius: 16px;
 
-            padding: 23px;
+            padding: 22px;
 
             display: flex;
 
             align-items: center;
 
-            gap: 17px;
+            gap: 18px;
 
             cursor: pointer;
 
             transition: 0.3s;
 
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.05);
         }
-
 
         .city-card:hover {
-
             transform: translateY(-5px);
 
-            border-color: var(--accent);
+            border-color: var(--primary);
 
             box-shadow:
-                0 10px 25px rgba(0,70,90,0.10);
-
+                0 10px 25px rgba(0,0,0,0.10);
         }
 
-
         .city-icon {
-
-            width: 55px;
-
-            height: 55px;
-
-            flex-shrink: 0;
+            width: 58px;
+            height: 58px;
 
             border-radius: 50%;
 
-            background: #e2f7fa;
+            background: #e5f6f8;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
-            font-size: 25px;
-
+            font-size: 28px;
         }
-
 
         .city-card h3 {
-
-            font-size: 18px;
-
-            color: var(--dark);
+            color: #18333f;
 
             margin-bottom: 5px;
-
         }
 
-
         .city-card p {
+            color: #74838a;
 
-            color: #73828a;
-
-            font-size: 13px;
-
+            font-size: 14px;
         }
 
 
@@ -1691,7 +1067,6 @@
         ===================================================== */
 
         .features {
-
             max-width: 1200px;
 
             margin: 0 auto 70px;
@@ -1704,81 +1079,59 @@
                 repeat(3, 1fr);
 
             gap: 20px;
-
         }
 
-
         .feature-card {
-
             background: white;
 
-            border-radius: 16px;
+            border-radius: 18px;
 
-            padding: 30px 25px;
+            padding: 30px;
 
             text-align: center;
 
-            border: 1px solid #e3ecef;
+            border: 1px solid var(--border);
 
             transition: 0.3s;
-
         }
 
-
         .feature-card:hover {
-
             transform: translateY(-5px);
 
             box-shadow:
-                0 10px 25px rgba(0,50,70,0.09);
-
+                0 10px 25px rgba(0,0,0,0.08);
         }
 
-
         .feature-icon {
+            width: 65px;
+            height: 65px;
 
-            width: 60px;
-
-            height: 60px;
-
-            margin: 0 auto 15px;
+            margin: 0 auto 18px;
 
             border-radius: 50%;
 
-            background: #e2f7fa;
-
-            color: var(--primary);
+            background: #e3f7f9;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
-            font-size: 27px;
-
+            font-size: 30px;
         }
-
 
         .feature-card h3 {
+            color: #18333f;
 
-            color: var(--dark);
-
-            font-size: 19px;
-
-            margin-bottom: 8px;
-
+            margin-bottom: 10px;
         }
 
-
         .feature-card p {
-
-            color: #718087;
+            color: #687980;
 
             font-size: 14px;
 
-            line-height: 1.5;
-
+            line-height: 1.6;
         }
 
 
@@ -1787,47 +1140,39 @@
         ===================================================== */
 
         .whatsapp {
-
             position: fixed;
 
-            right: 22px;
-
-            bottom: 22px;
+            right: 25px;
+            bottom: 25px;
 
             width: 55px;
-
             height: 55px;
 
-            background: #20c863;
-
-            color: white;
+            background: #25d366;
 
             border-radius: 50%;
+
+            color: white;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
-            font-size: 26px;
-
-            z-index: 500;
+            font-size: 25px;
 
             cursor: pointer;
 
+            z-index: 999;
+
             box-shadow:
-                0 5px 18px rgba(0,0,0,0.20);
+                0 5px 20px rgba(0,0,0,0.20);
 
             transition: 0.3s;
-
         }
 
-
         .whatsapp:hover {
-
             transform: scale(1.1);
-
         }
 
 
@@ -1836,236 +1181,195 @@
         ===================================================== */
 
         footer {
-
-            background: #0b3041;
+            background: #123746;
 
             color: white;
 
             text-align: center;
 
-            padding: 35px 20px;
-
+            padding: 40px 20px;
         }
-
 
         footer h3 {
+            font-size: 22px;
 
-            color: #00b4d8;
-
-            margin-bottom: 9px;
-
+            margin-bottom: 10px;
         }
-
 
         footer p {
+            color: #c6d8dd;
 
-            color: #b8cbd2;
+            margin: 8px 0;
 
-            font-size: 13px;
-
-            margin: 5px 0;
-
+            font-size: 14px;
         }
 
 
         /* =====================================================
-           TABLET
+           RESPONSIVE
         ===================================================== */
 
-        @media(max-width: 1100px) {
+        @media (max-width: 1050px) {
 
             .search-box {
-
                 grid-template-columns:
-                    1fr 1fr 1fr;
-
+                    1fr
+                    50px
+                    1fr;
             }
-
-
-            .swap {
-
-                display: none;
-
-            }
-
 
             .search-btn {
-
-                width: 100%;
-
+                grid-column: span 3;
             }
 
-
             .offers-container {
-
                 grid-template-columns:
-                    repeat(2,1fr);
-
+                    repeat(2, 1fr);
             }
 
         }
 
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media(max-width: 700px) {
+        @media (max-width: 768px) {
 
             header {
-
                 height: auto;
-
             }
 
-
             .navbar {
-
                 height: auto;
 
-                padding: 12px 15px;
+                padding: 12px 20px;
 
                 flex-direction: column;
 
-                gap: 12px;
-
+                gap: 15px;
             }
 
-
             .nav-links {
-
-                gap: 13px;
+                gap: 15px;
 
                 flex-wrap: wrap;
 
                 justify-content: center;
-
             }
-
-
-            .nav-links a {
-
-                font-size: 13px;
-
-            }
-
 
             .hero {
-
                 margin-top: 125px;
 
-                height: 440px;
+                height: 480px;
 
                 background-position: center;
-
             }
-
 
             .hero-content h1 {
-
-                font-size: 38px;
-
+                font-size: 42px;
             }
-
 
             .hero-content p {
-
-                font-size: 16px;
-
+                font-size: 17px;
             }
-
 
             .hero-features {
+                gap: 12px;
 
                 flex-direction: column;
-
-                gap: 10px;
-
             }
 
-
             .search-box {
-
                 grid-template-columns: 1fr;
 
                 width: 90%;
 
                 margin-top: -30px;
-
             }
 
-
             .swap {
-
-                display: flex;
-
                 margin: auto;
 
                 transform: rotate(90deg);
-
             }
-
 
             .swap:hover {
-
-                transform:
-                    rotate(270deg);
-
+                transform: rotate(270deg);
             }
 
+            .search-btn {
+                grid-column: auto;
+            }
 
             .offers-container {
-
                 grid-template-columns: 1fr;
-
             }
-
-
-            .offer-card {
-
-                height: 245px;
-
-            }
-
 
             .cities {
-
                 grid-template-columns: 1fr;
-
             }
-
 
             .features {
-
                 grid-template-columns: 1fr;
-
             }
 
+            .offers-header {
+                flex-direction: column;
 
-            .offers-header h2 {
+                align-items: flex-start;
 
-                font-size: 24px;
-
+                gap: 10px;
             }
-
 
             .offer-tabs {
-
                 overflow-x: auto;
-
             }
 
-
             .offer-tab {
-
                 white-space: nowrap;
+            }
+        }
 
+
+        @media (max-width: 480px) {
+
+            .logo-main {
+                font-size: 17px;
+            }
+
+            .logo-sub {
+                font-size: 14px;
+            }
+
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .login-button {
+                padding: 9px 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 34px;
+            }
+
+            .hero-content p {
+                font-size: 15px;
+            }
+
+            .search-box {
+                padding: 18px;
+            }
+
+            .offer-card {
+                height: 245px;
             }
 
         }
 
     </style>
-
 </head>
 
 
@@ -2080,8 +1384,15 @@
 
     <nav class="navbar">
 
+        <!-- =================================================
+             LOGO - CLICKING THIS ALWAYS OPENS HOME
+        ================================================== -->
 
-        <a href="index.html" class="logo">
+        <a
+            href="./index.html"
+            class="logo"
+            aria-label="Nessus Tours and Travels Home"
+        >
 
             <div class="logo-icon">
                 NT
@@ -2102,29 +1413,35 @@
         </a>
 
 
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
         <ul class="nav-links">
 
             <li>
-                <a href="index.html">
+                <a href="./index.html">
                     Home
                 </a>
             </li>
 
             <li>
-                <a href="bookings.html">
+                <a href="./bookings.html">
                     Manage Bookings
                 </a>
             </li>
 
             <li>
-                <a href="contact.html">
+                <a href="./contact.html">
                     Contact
                 </a>
             </li>
 
             <li>
-                <a href="login.html"
-                   class="login-button">
+                <a
+                    href="./login.html"
+                    class="login-button"
+                >
                     Login
                 </a>
             </li>
@@ -2200,8 +1517,10 @@
      BOOKING SEARCH
 ===================================================== -->
 
-<form class="search-box"
-      id="searchForm">
+<form
+    class="search-box"
+    id="searchForm"
+>
 
 
     <!-- FROM -->
@@ -2218,7 +1537,10 @@
                 🚌
             </span>
 
-            <select id="origin" required>
+            <select
+                id="origin"
+                required
+            >
 
                 <option value="">
                     Select city
@@ -2243,17 +1565,16 @@
     </div>
 
 
-
     <!-- SWAP -->
 
-    <button type="button"
-            class="swap"
-            id="swapBtn">
-
+    <button
+        type="button"
+        class="swap"
+        id="swapBtn"
+        title="Swap cities"
+    >
         ⇄
-
     </button>
-
 
 
     <!-- TO -->
@@ -2270,7 +1591,10 @@
                 📍
             </span>
 
-            <select id="destination" required>
+            <select
+                id="destination"
+                required
+            >
 
                 <option value="">
                     Select city
@@ -2295,8 +1619,7 @@
     </div>
 
 
-
-    <!-- JOURNEY -->
+    <!-- JOURNEY DATE -->
 
     <div class="search-item">
 
@@ -2310,14 +1633,15 @@
                 📅
             </span>
 
-            <input type="date"
-                   id="journeyDate"
-                   required>
+            <input
+                type="date"
+                id="journeyDate"
+                required
+            >
 
         </div>
 
     </div>
-
 
 
     <!-- RETURN -->
@@ -2334,22 +1658,23 @@
                 📅
             </span>
 
-            <input type="date"
-                   id="returnDate">
+            <input
+                type="date"
+                id="returnDate"
+            >
 
         </div>
 
     </div>
 
 
-
     <!-- SEARCH -->
 
-    <button type="submit"
-            class="search-btn">
-
+    <button
+        type="submit"
+        class="search-btn"
+    >
         🔍 Search Buses
-
     </button>
 
 </form>
@@ -2362,35 +1687,49 @@
 
 <section class="offers-section">
 
-
     <div class="offers-header">
 
         <h2>
-            Offers for you
+            Offers & Deals
         </h2>
 
-        <a href="offers.html">
-            View more
-        </a>
+        <span>
+            Best deals for your journey
+        </span>
 
     </div>
 
 
+    <!-- TABS -->
+
     <div class="offer-tabs">
 
-        <button class="offer-tab active"
-                onclick="filterOffers('all',this)">
+        <button
+            class="offer-tab active"
+            onclick="filterOffers('all', this)"
+        >
             All
         </button>
 
-        <button class="offer-tab"
-                onclick="filterOffers('bus',this)">
-            Bus
+        <button
+            class="offer-tab"
+            onclick="filterOffers('bus', this)"
+        >
+            🚌 Bus
         </button>
 
-        <button class="offer-tab"
-                onclick="filterOffers('train',this)">
-            Train
+        <button
+            class="offer-tab"
+            onclick="filterOffers('special', this)"
+        >
+            ⭐ Special
+        </button>
+
+        <button
+            class="offer-tab"
+            onclick="filterOffers('payment', this)"
+        >
+            💳 Payment
         </button>
 
     </div>
@@ -2401,8 +1740,10 @@
 
         <!-- OFFER 1 -->
 
-        <div class="offer-card offer-card-1"
-             data-type="bus">
+        <div
+            class="offer-card offer-card-1"
+            data-type="bus"
+        >
 
             <div class="offer-text">
 
@@ -2433,8 +1774,6 @@
             </div>
 
 
-            <!-- CSS BUS -->
-
             <div class="bus-illustration">
 
                 <div class="bus-body">
@@ -2456,11 +1795,12 @@
         </div>
 
 
-
         <!-- OFFER 2 -->
 
-        <div class="offer-card offer-card-2"
-             data-type="bus">
+        <div
+            class="offer-card offer-card-2"
+            data-type="bus"
+        >
 
             <div class="offer-text">
 
@@ -2512,11 +1852,12 @@
         </div>
 
 
-
         <!-- OFFER 3 -->
 
-        <div class="offer-card offer-card-3"
-             data-type="bus">
+        <div
+            class="offer-card offer-card-3"
+            data-type="special"
+        >
 
             <div class="offer-text">
 
@@ -2566,11 +1907,12 @@
         </div>
 
 
-
         <!-- OFFER 4 -->
 
-        <div class="offer-card offer-card-4"
-             data-type="bus">
+        <div
+            class="offer-card offer-card-4"
+            data-type="payment"
+        >
 
             <div class="offer-text">
 
@@ -2605,50 +1947,6 @@
 
         </div>
 
-
-
-        <!-- TRAIN OFFER -->
-
-        <div class="offer-card offer-card-5"
-             data-type="train"
-             style="display:none;">
-
-            <div class="offer-text">
-
-                <span class="offer-type">
-                    Train
-                </span>
-
-                <h3>
-                    Save ₹150 on selected train journeys
-                </h3>
-
-                <p>
-                    Valid till 31 Oct
-                </p>
-
-                <div class="coupon-code">
-
-                    <span class="coupon-icon">
-                        🏷
-                    </span>
-
-                    <strong>
-                        TRAIN150
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="train-illustration">
-                🚆
-            </div>
-
-        </div>
-
-
     </div>
 
 </section>
@@ -2660,7 +1958,6 @@
 ===================================================== -->
 
 <section class="cities-section">
-
 
     <div class="section-heading">
 
@@ -2680,8 +1977,10 @@
 
         <!-- KOLHAPUR -->
 
-        <div class="city-card"
-             onclick="selectCity('Kolhapur')">
+        <div
+            class="city-card"
+            onclick="selectCity('Kolhapur')"
+        >
 
             <div class="city-icon">
                 🏛️
@@ -2702,11 +2001,12 @@
         </div>
 
 
-
         <!-- PUNE -->
 
-        <div class="city-card"
-             onclick="selectCity('Pune')">
+        <div
+            class="city-card"
+            onclick="selectCity('Pune')"
+        >
 
             <div class="city-icon">
                 🏙️
@@ -2727,11 +2027,12 @@
         </div>
 
 
-
         <!-- MUMBAI -->
 
-        <div class="city-card"
-             onclick="selectCity('Mumbai')">
+        <div
+            class="city-card"
+            onclick="selectCity('Mumbai')"
+        >
 
             <div class="city-icon">
                 🌆
@@ -2750,7 +2051,6 @@
             </div>
 
         </div>
-
 
     </div>
 
@@ -2783,7 +2083,6 @@
     </div>
 
 
-
     <div class="feature-card">
 
         <div class="feature-icon">
@@ -2800,7 +2099,6 @@
         </p>
 
     </div>
-
 
 
     <div class="feature-card">
@@ -2820,7 +2118,6 @@
 
     </div>
 
-
 </section>
 
 
@@ -2829,12 +2126,12 @@
      WHATSAPP
 ===================================================== -->
 
-<div class="whatsapp"
-     onclick="openWhatsApp()"
-     title="Contact us">
-
+<div
+    class="whatsapp"
+    onclick="openWhatsApp()"
+    title="Contact us"
+>
     ☎
-
 </div>
 
 
@@ -2871,7 +2168,7 @@
 
 
     /* =====================================================
-       DATE
+       SET MINIMUM DATE
     ===================================================== */
 
     const today =
@@ -2957,19 +2254,27 @@
 
 
                 const from =
-                    document.getElementById("origin").value;
+                    document
+                    .getElementById("origin")
+                    .value;
 
 
                 const to =
-                    document.getElementById("destination").value;
+                    document
+                    .getElementById("destination")
+                    .value;
 
 
                 const journey =
-                    document.getElementById("journeyDate").value;
+                    document
+                    .getElementById("journeyDate")
+                    .value;
 
 
                 const returnDate =
-                    document.getElementById("returnDate").value;
+                    document
+                    .getElementById("returnDate")
+                    .value;
 
 
                 if (!from || !to || !journey) {
@@ -2979,7 +2284,6 @@
                     );
 
                     return;
-
                 }
 
 
@@ -2990,7 +2294,6 @@
                     );
 
                     return;
-
                 }
 
 
@@ -3113,9 +2416,29 @@
     }
 
 
+    /* =====================================================
+       LOGO HOME SAFETY
+       
+       Clicking the logo will ALWAYS return to index.html.
+    ===================================================== */
+
+    document
+        .querySelector(".logo")
+        .addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "./home.html";
+
+            }
+        );
+
+
 </script>
 
 
 </body>
-
 </html>
