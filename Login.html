@@ -1,421 +1,687 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Travel System - Authentication</title>
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- React & React DOM CDN -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  
-  <!-- Babel CDN for browser JSX compilation -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Nessus Tours & Travels</title>
+
+    <style>
+        /* =====================================================
+           GLOBAL & VARIABLES (EXACT MATCH WITH HOME)
+        ===================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        :root {
+            --primary: #087e8b;
+            --primary-dark: #065a63;
+            --secondary: #0b4f6c;
+            --accent: #00a9c7;
+            --dark: #172f3d;
+            --text: #263943;
+            --light: #f5f9fa;
+            --white: #ffffff;
+            --border: #d8e4e8;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* =====================================================
+           REAL HOME PAGE BACKGROUND LAYER
+        ===================================================== */
+        .bg-home-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            user-select: none;
+            filter: brightness(0.9);
+        }
+
+        /* HEADER */
+        header {
+            width: 100%;
+            height: 82px;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.10);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1250px;
+            height: 82px;
+            margin: auto;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00b4d8, #087e8b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+            border: 4px solid white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+        }
+
+        .logo-main {
+            display: block;
+            color: var(--secondary);
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .logo-sub {
+            display: block;
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .login-button {
+            background: var(--primary);
+            color: white !important;
+            padding: 12px 25px;
+            border-radius: 25px;
+        }
+
+        .login-button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* HERO */
+        .hero {
+            height: 555px;
+            margin-top: 82px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.80) 0%,
+                    rgba(255,255,255,0.48) 38%,
+                    rgba(255,255,255,0.08) 75%
+                ),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1900&q=90");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 120px;
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(245,249,250,0.98)
+                );
+            z-index: 2;
+        }
+
+        .hero-content {
+            width: 1200px;
+            max-width: 90%;
+            margin: auto;
+            position: relative;
+            z-index: 5;
+            padding-bottom: 50px;
+        }
+
+        .hero-content h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            max-width: 750px;
+            color: #073b4c;
+            font-weight: 800;
+            margin-bottom: 18px;
+            text-shadow: 0 3px 6px rgba(255,255,255,0.7);
+        }
+
+        .hero-content p {
+            font-size: 21px;
+            max-width: 650px;
+            color: #15566b;
+            margin-bottom: 28px;
+            font-weight: 500;
+        }
+
+        /* SEARCH BOX */
+        .search-box {
+            width: min(94%, 1150px);
+            margin: -55px auto 60px;
+            position: relative;
+            z-index: 50;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: 1.2fr 50px 1.2fr 1fr 1fr 170px;
+            gap: 10px;
+            align-items: end;
+        }
+
+        .search-item label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #52656e;
+            margin-bottom: 7px;
+        }
+
+        .search-item select, .search-item input {
+            width: 100%;
+            height: 53px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0 15px;
+            background: white;
+        }
+
+        .search-btn {
+            height: 53px;
+            border: none;
+            border-radius: 28px;
+            background: var(--primary);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        /* =====================================================
+           MODAL OVERLAY (CLICK OUTSIDE TO GO TO PREVIOUS PAGE)
+        ===================================================== */
+        .login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 48, 65, 0.45);
+            backdrop-filter: blur(2px);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .login-card {
+            width: min(100%, 450px);
+            background: var(--white);
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            cursor: default;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #8fa0a8;
+            font-size: 26px;
+            font-weight: bold;
+            line-height: 1;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .close-btn:hover {
+            color: var(--dark);
+        }
+
+        /* =====================================================
+           FORM SWITCHING & ELEMENTS
+        ===================================================== */
+        .form-view {
+            display: none;
+        }
+
+        .form-view.active {
+            display: block;
+        }
+
+        .login-header h2 {
+            font-size: 26px;
+            color: var(--dark);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .login-header p {
+            font-size: 14px;
+            color: #687a82;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #52656e;
+            margin-bottom: 7px;
+        }
+
+        .form-group input {
+            width: 100%;
+            height: 48px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0 14px;
+            background: var(--white);
+            color: var(--dark);
+            outline: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(8, 126, 139, 0.12);
+        }
+
+        .form-group input.error {
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.12);
+        }
+
+        .error-message {
+            display: none;
+            font-size: 12px;
+            color: #e74c3c;
+            margin-top: 5px;
+            margin-left: 2px;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 22px;
+            font-size: 13px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #52656e;
+            cursor: pointer;
+        }
+
+        .link-btn {
+            color: var(--primary);
+            background: none;
+            border: none;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        .link-btn:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 25px;
+            background: var(--primary);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(8, 126, 139, 0.25);
+        }
+
+        .form-footer {
+            margin-top: 22px;
+            font-size: 14px;
+            color: #687a82;
+        }
+    </style>
 </head>
-<body class="bg-gray-100">
-  <!-- Background iframe showing home.html -->
-  <iframe 
-    id="bg-frame" 
-    src="home.html" 
-    title="Home page background"
-    style="
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      z-index: 0;
-      pointer-events: none;
-    "
-  ></iframe>
 
-  <div id="root" style="position: relative; z-index: 10;"></div>
+<body>
 
-  <script type="text/babel">
-    const { useState } = React;
+    <!-- =====================================================
+         EXACT HOME PAGE IN BACKGROUND
+    ===================================================== -->
+    <div class="bg-home-wrapper">
+        <header>
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <div class="logo-icon">NT</div>
+                    <div class="logo-text">
+                        <span class="logo-main">NESSUS TOURS</span>
+                        <span class="logo-sub">& TRAVELS</span>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Manage Bookings</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="login-button">Login</a></li>
+                </ul>
+            </nav>
+            <button type="button" class="close-btn" onclick="goToPreviousPage()" title="Close" style="position: absolute; top: 20px; right: 25px; z-index: 1001;">&times;</button>
+        </header>
 
-    // --- 1. LOGIN COMPONENT ---
-    function LoginPage({ onNavigate }) {
-      const [formData, setFormData] = useState({ email: '', password: '' });
-      const [showPassword, setShowPassword] = useState(false);
-      const [errorMsg, setErrorMsg] = useState('');
-      const [loading, setLoading] = useState(false);
-
-      const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
-
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        setErrorMsg('');
-        setLoading(true);
-
-        setTimeout(() => {
-          alert(`Logged in successfully as: ${formData.email}`);
-          setLoading(false);
-        }, 800);
-      };
-
-      return (
-        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative">
-          {/* Close button - top right */}
-          <button
-            onClick={() => window.location.href = 'home.html'}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-            aria-label="Close and go to home page"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          
-          <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Welcome Back</h2>
-          <p className="text-sm text-gray-500 text-center mb-6">Sign in to access your travel bookings</p>
-
-          {errorMsg && (
-            <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm mb-4">
-              {errorMsg}
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Travel With Comfort</h1>
+                <p>Book your journey with Nessus Tours & Travels</p>
             </div>
-          )}
+        </section>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="name@example.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
+        <form class="search-box">
+            <div class="search-item">
+                <label>From</label>
+                <select><option>Select city</option></select>
             </div>
+            <div style="text-align: center; font-size: 20px; color: #087e8b;">⇄</div>
+            <div class="search-item">
+                <label>To</label>
+                <select><option>Select city</option></select>
+            </div>
+            <div class="search-item">
+                <label>Journey Date</label>
+                <input type="date">
+            </div>
+            <div class="search-item">
+                <label>Return</label>
+                <input type="date">
+            </div>
+            <button type="button" class="search-btn">Search Buses</button>
+        </form>
+    </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-              <div className="relative">
-                <input
-                  type={showPassword ? 'text' : 'password'}
-                  name="password"
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="••••••••"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-2.5 text-sm text-gray-500 hover:text-gray-700"
-                >
-                  {showPassword ? 'Hide' : 'Show'}
-                </button>
-              </div>
+    <!-- =====================================================
+         MODAL OVERLAY (CLICK OUTSIDE TO GO TO PREVIOUS PAGE)
+    ===================================================== -->
+    <div class="login-overlay" onclick="goToPreviousPage()">
+
+        <div class="login-card" onclick="event.stopPropagation()">
+
+            <button type="button" class="close-btn" onclick="goToPreviousPage()" title="Close">&times;</button>
+
+            <!-- 1. LOGIN FORM VIEW -->
+            <div id="loginView" class="form-view active">
+                <div class="login-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to manage your travel bookings</p>
+                </div>
+
+                <form onsubmit="handleAuthSubmit(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Email or Mobile Number</label>
+                        <input type="text" id="loginEmail" placeholder="Enter email or mobile" required>
+                        <span class="error-message" id="loginEmailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter password" required>
+                        <span class="error-message" id="loginPasswordError"></span>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <button type="button" class="link-btn" onclick="switchView('forgotView')">Forgot Password?</button>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+
+                <div class="form-footer">
+                    Don't have an account? 
+                    <button type="button" class="link-btn" onclick="switchView('registerView')">Register Now</button>
+                </div>
             </div>
 
-            <div className="flex items-center justify-between text-sm">
-              <button 
-                type="button" 
-                onClick={() => onNavigate('forgot-password')} 
-                className="text-blue-600 hover:underline"
-              >
-                Forgot password?
-              </button>
+            <!-- 2. REGISTER FORM VIEW -->
+            <div id="registerView" class="form-view">
+                <div class="login-header">
+                    <h2>Create Account</h2>
+                    <p>Sign up to start booking your trips</p>
+                </div>
+
+                <form onsubmit="handleAuthSubmit(event)">
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" placeholder="Enter email address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPassword">Create Password</label>
+                        <input type="password" id="regPassword" placeholder="Create a strong password" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Register</button>
+                </form>
+
+                <div class="form-footer">
+                    Already have an account? 
+                    <button type="button" class="link-btn" onclick="switchView('loginView')">Login Here</button>
+                </div>
             </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200 disabled:opacity-50"
-            >
-              {loading ? 'Authenticating...' : 'Sign In'}
-            </button>
-          </form>
+            <!-- 3. FORGOT PASSWORD FORM VIEW -->
+            <div id="forgotView" class="form-view">
+                <div class="login-header">
+                    <h2>Reset Password</h2>
+                    <p>Enter your email to receive recovery instructions</p>
+                </div>
 
-          <p className="text-center text-sm text-gray-600 mt-6">
-            Don't have an account?{' '}
-            <button 
-              onClick={() => onNavigate('register')} 
-              className="text-blue-600 font-medium hover:underline"
-            >
-              Register
-            </button>
-          </p>
+                <form onsubmit="handleAuthSubmit(event)">
+                    <div class="form-group">
+                        <label for="resetEmail">Registered Email</label>
+                        <input type="email" id="resetEmail" placeholder="Enter your registered email" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Reset Link</button>
+                </form>
+
+                <div class="form-footer">
+                    Remembered password? 
+                    <button type="button" class="link-btn" onclick="switchView('loginView')">Back to Login</button>
+                </div>
+            </div>
+
         </div>
-      );
-    }
 
-    // --- 2. REGISTER COMPONENT ---
-    function RegisterPage({ onNavigate }) {
-      const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
-        password: '',
-        role: 'CUSTOMER'
-      });
-      const [loading, setLoading] = useState(false);
+    </div>
 
-      const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-      };
+    <!-- JAVASCRIPT NAVIGATION LOGIC -->
+    <script>
+        function goToPreviousPage() {
+            window.location.href = 'home.html';
+        }
 
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        setLoading(true);
+        function switchView(viewId) {
+            const views = document.querySelectorAll('.form-view');
+            views.forEach(view => view.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+        }
 
-        setTimeout(() => {
-          alert(`Account created successfully for ${formData.fullName}! Please sign in.`);
-          setLoading(false);
-          onNavigate('login');
-        }, 800);
-      };
+        function handleAuthSubmit(event) {
+            event.preventDefault();
+            
+            const emailOrMobile = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const emailInput = document.getElementById('loginEmail');
+            const passwordInput = document.getElementById('loginPassword');
+            const emailError = document.getElementById('loginEmailError');
+            const passwordError = document.getElementById('loginPasswordError');
+            
+            // Clear previous errors
+            clearErrors();
+            
+            let hasError = false;
+            
+            // Validate email or mobile number
+            if (!emailOrMobile) {
+                showError(emailInput, emailError, 'Please enter your email or mobile number');
+                hasError = true;
+            } else if (!validateEmailOrMobile(emailOrMobile)) {
+                showError(emailInput, emailError, 'Enter a valid email (with @) or 10-digit mobile number');
+                hasError = true;
+            }
+            
+            if (!password) {
+                showError(passwordInput, passwordError, 'Please enter your password');
+                hasError = true;
+            }
+            
+            if (!hasError) {
+                goToPreviousPage();
+            }
+        }
+        
+        function showError(input, errorElement, message) {
+            input.classList.add('error');
+            errorElement.textContent = message;
+            errorElement.classList.add('visible');
+        }
+        
+        function clearErrors() {
+            const inputs = document.querySelectorAll('.form-group input');
+            const errors = document.querySelectorAll('.error-message');
+            inputs.forEach(input => input.classList.remove('error'));
+            errors.forEach(error => {
+                error.textContent = '';
+                error.classList.remove('visible');
+            });
+        }
+        
+        function validateEmailOrMobile(input) {
+            // Check if it's an email (contains @)
+            if (input.includes('@')) {
+                // Basic email validation - must have @ and at least one character before and after
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(input);
+            }
+            // Check if it's a mobile number (exactly 10 digits)
+            else {
+                const mobileRegex = /^\d{10}$/;
+                return mobileRegex.test(input);
+            }
+        }
 
-      return (
-        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative">
-          {/* Close button - top right */}
-          <button
-            onClick={() => window.location.href = 'home.html'}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-            aria-label="Close and go to home page"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          
-          <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Create an Account</h2>
-          <p className="text-sm text-gray-500 text-center mb-6">Join to start booking bus and travel services</p>
+        // Clear error on input
+        document.getElementById('loginEmail').addEventListener('input', function() {
+            this.classList.remove('error');
+            document.getElementById('loginEmailError').classList.remove('visible');
+            document.getElementById('loginEmailError').textContent = '';
+        });
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-              <input
-                type="text"
-                name="fullName"
-                required
-                value={formData.fullName}
-                onChange={handleChange}
-                placeholder="John Doe"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
+        document.getElementById('loginPassword').addEventListener('input', function() {
+            this.classList.remove('error');
+            document.getElementById('loginPasswordError').classList.remove('visible');
+            document.getElementById('loginPasswordError').textContent = '';
+        });
+    </script>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="name@example.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-              <input
-                type="tel"
-                name="phone"
-                required
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="+91 98765 43210"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Account Type</label>
-              <select
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
-              >
-                <option value="CUSTOMER">Customer / Passenger</option>
-                <option value="AGENT">Travel Agent</option>
-                <option value="OPERATOR">Bus Operator</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-              <input
-                type="password"
-                name="password"
-                required
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="••••••••"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200 disabled:opacity-50"
-            >
-              {loading ? 'Registering...' : 'Create Account'}
-            </button>
-          </form>
-
-          <p className="text-center text-sm text-gray-600 mt-6">
-            Already have an account?{' '}
-            <button 
-              onClick={() => onNavigate('login')} 
-              className="text-blue-600 font-medium hover:underline"
-            >
-              Sign In
-            </button>
-          </p>
-        </div>
-      );
-    }
-
-    // --- 3. FORGOT PASSWORD (OTP EMAIL) COMPONENT ---
-    function ForgotPasswordPage({ onNavigate }) {
-      const [step, setStep] = useState(1); // Step 1: Enter Email | Step 2: Enter OTP & New Password
-      const [email, setEmail] = useState('');
-      const [otp, setOtp] = useState('');
-      const [newPassword, setNewPassword] = useState('');
-      const [loading, setLoading] = useState(false);
-
-      const handleSendOtp = (e) => {
-        e.preventDefault();
-        setLoading(true);
-
-        setTimeout(() => {
-          alert(`A 6-digit OTP code has been sent to ${email}`);
-          setLoading(false);
-          setStep(2);
-        }, 800);
-      };
-
-      const handleResetPassword = (e) => {
-        e.preventDefault();
-        setLoading(true);
-
-        setTimeout(() => {
-          alert('Password reset successful! You can now sign in with your new password.');
-          setLoading(false);
-          onNavigate('login');
-        }, 800);
-      };
-
-      return (
-        <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 relative">
-          {/* Close button - top right */}
-          <button
-            onClick={() => window.location.href = 'home.html'}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-            aria-label="Close and go to home page"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          
-          <h2 className="text-2xl font-bold text-gray-800 text-center mb-2">Reset Password</h2>
-          <p className="text-sm text-gray-500 text-center mb-6">
-            {step === 1 ? 'Enter your email to receive an OTP code' : 'Enter the OTP sent to your email and your new password'}
-          </p>
-
-          {step === 1 ? (
-            <form onSubmit={handleSendOtp} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="name@example.com"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-2.5 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200 disabled:opacity-50"
-              >
-                {loading ? 'Sending OTP...' : 'Send OTP Code'}
-              </button>
-            </form>
-          ) : (
-            <form onSubmit={handleResetPassword} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">6-Digit OTP</label>
-                <input
-                  type="text"
-                  maxLength="6"
-                  required
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
-                  placeholder="123456"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none tracking-widest text-center text-lg"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
-                <input
-                  type="password"
-                  required
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full py-2.5 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-200 disabled:opacity-50"
-              >
-                {loading ? 'Resetting...' : 'Reset Password'}
-              </button>
-            </form>
-          )}
-
-          <p className="text-center text-sm text-gray-600 mt-6">
-            Remembered your password?{' '}
-            <button 
-              onClick={() => onNavigate('login')} 
-              className="text-blue-600 font-medium hover:underline"
-            >
-              Sign In
-            </button>
-          </p>
-        </div>
-      );
-    }
-
-    // --- MAIN PARENT APP CONTAINER ---
-    function App() {
-      const [currentView, setCurrentView] = useState('login');
-
-      return (
-        <div className="min-h-screen flex items-center justify-center p-4">
-          {currentView === 'login' && <LoginPage onNavigate={setCurrentView} />}
-          {currentView === 'register' && <RegisterPage onNavigate={setCurrentView} />}
-          {currentView === 'forgot-password' && <ForgotPasswordPage onNavigate={setCurrentView} />}
-        </div>
-      );
-    }
-
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
-  </script>
 </body>
+
 </html>
