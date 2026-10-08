@@ -8,8 +8,9 @@
 
     <style>
         /* =====================================================
-           GLOBAL & VARIABLES (EXACT MATCH WITH HOME)
+           GLOBAL & VARIABLES
         ===================================================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -38,8 +39,9 @@
         }
 
         /* =====================================================
-           REAL HOME PAGE BACKGROUND LAYER
+           HOME PAGE BACKGROUND
         ===================================================== */
+
         .bg-home-wrapper {
             position: absolute;
             top: 0;
@@ -51,11 +53,12 @@
         }
 
         /* HEADER */
+
         header {
             width: 100%;
             height: 82px;
             background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.10);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.10);
             position: fixed;
             top: 0;
             left: 0;
@@ -92,7 +95,7 @@
             font-weight: 800;
             font-size: 16px;
             border: 4px solid white;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
         }
 
         .logo-main {
@@ -139,7 +142,10 @@
             background: var(--primary-dark);
         }
 
-        /* HERO */
+        /* =====================================================
+           HERO
+        ===================================================== */
+
         .hero {
             height: 555px;
             margin-top: 82px;
@@ -147,14 +153,16 @@
             overflow: hidden;
             display: flex;
             align-items: center;
+
             background-image:
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,0.80) 0%,
-                    rgba(255,255,255,0.48) 38%,
-                    rgba(255,255,255,0.08) 75%
+                    rgba(255, 255, 255, 0.80) 0%,
+                    rgba(255, 255, 255, 0.48) 38%,
+                    rgba(255, 255, 255, 0.08) 75%
                 ),
                 url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1900&q=90");
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -167,11 +175,13 @@
             right: 0;
             bottom: 0;
             height: 120px;
+
             background:
                 linear-gradient(
                     transparent,
-                    rgba(245,249,250,0.98)
+                    rgba(245, 249, 250, 0.98)
                 );
+
             z-index: 2;
         }
 
@@ -191,7 +201,7 @@
             color: #073b4c;
             font-weight: 800;
             margin-bottom: 18px;
-            text-shadow: 0 3px 6px rgba(255,255,255,0.7);
+            text-shadow: 0 3px 6px rgba(255, 255, 255, 0.7);
         }
 
         .hero-content p {
@@ -202,7 +212,10 @@
             font-weight: 500;
         }
 
-        /* SEARCH BOX */
+        /* =====================================================
+           SEARCH BOX
+        ===================================================== */
+
         .search-box {
             width: min(94%, 1150px);
             margin: -55px auto 60px;
@@ -211,6 +224,7 @@
             background: white;
             border-radius: 20px;
             padding: 25px;
+
             display: grid;
             grid-template-columns: 1.2fr 50px 1.2fr 1fr 1fr 170px;
             gap: 10px;
@@ -225,7 +239,8 @@
             margin-bottom: 7px;
         }
 
-        .search-item select, .search-item input {
+        .search-item select,
+        .search-item input {
             width: 100%;
             height: 53px;
             border: 1px solid var(--border);
@@ -245,21 +260,27 @@
         }
 
         /* =====================================================
-           MODAL OVERLAY (CLICK OUTSIDE TO GO TO PREVIOUS PAGE)
+           MODAL OVERLAY
         ===================================================== */
+
         .login-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+
             background: rgba(11, 48, 65, 0.45);
             backdrop-filter: blur(2px);
+
             z-index: 10;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             padding: 20px;
+
             cursor: pointer;
         }
 
@@ -268,19 +289,26 @@
             background: var(--white);
             border-radius: 20px;
             padding: 36px 32px;
+
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
             border: 1px solid var(--border);
             text-align: center;
+
             position: relative;
+
             cursor: default;
+
             animation: modalFadeIn 0.3s ease-out;
         }
 
         @keyframes modalFadeIn {
+
             from {
                 opacity: 0;
                 transform: translateY(-20px) scale(0.96);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
@@ -291,13 +319,18 @@
             position: absolute;
             top: 16px;
             right: 20px;
+
             background: none;
             border: none;
+
             color: #8fa0a8;
             font-size: 26px;
             font-weight: bold;
+
             line-height: 1;
+
             cursor: pointer;
+
             transition: 0.2s;
         }
 
@@ -306,8 +339,9 @@
         }
 
         /* =====================================================
-           FORM SWITCHING & ELEMENTS
+           FORM
         ===================================================== */
+
         .form-view {
             display: none;
         }
@@ -345,13 +379,19 @@
         .form-group input {
             width: 100%;
             height: 48px;
+
             border: 1px solid var(--border);
             border-radius: 10px;
+
             padding: 0 14px;
+
             background: var(--white);
             color: var(--dark);
+
             outline: none;
+
             font-size: 14px;
+
             transition: 0.3s;
         }
 
@@ -367,8 +407,10 @@
 
         .error-message {
             display: none;
+
             font-size: 12px;
             color: #e74c3c;
+
             margin-top: 5px;
             margin-left: 2px;
         }
@@ -381,7 +423,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             margin-bottom: 22px;
+
             font-size: 13px;
         }
 
@@ -389,18 +433,23 @@
             display: flex;
             align-items: center;
             gap: 6px;
+
             color: #52656e;
             cursor: pointer;
         }
 
         .link-btn {
             color: var(--primary);
+
             background: none;
             border: none;
+
             font-size: 13px;
             font-weight: 700;
+
             cursor: pointer;
             padding: 0;
+
             text-decoration: none;
         }
 
@@ -411,275 +460,1079 @@
         .submit-btn {
             width: 100%;
             height: 50px;
+
             border: none;
             border-radius: 25px;
+
             background: var(--primary);
             color: white;
+
             font-size: 15px;
             font-weight: 700;
+
             cursor: pointer;
+
             transition: 0.3s;
         }
 
         .submit-btn:hover {
             background: var(--primary-dark);
+
             transform: translateY(-2px);
+
             box-shadow: 0 8px 20px rgba(8, 126, 139, 0.25);
         }
 
         .form-footer {
             margin-top: 22px;
+
             font-size: 14px;
             color: #687a82;
         }
+
     </style>
 </head>
 
 <body>
 
     <!-- =====================================================
-         EXACT HOME PAGE IN BACKGROUND
+         HOME PAGE BACKGROUND
     ===================================================== -->
+
     <div class="bg-home-wrapper">
+
         <header>
+
             <nav class="navbar">
+
                 <a href="#" class="logo">
-                    <div class="logo-icon">NT</div>
-                    <div class="logo-text">
-                        <span class="logo-main">NESSUS TOURS</span>
-                        <span class="logo-sub">& TRAVELS</span>
+
+                    <div class="logo-icon">
+                        NT
                     </div>
+
+                    <div class="logo-text">
+
+                        <span class="logo-main">
+                            NESSUS TOURS
+                        </span>
+
+                        <span class="logo-sub">
+                            & TRAVELS
+                        </span>
+
+                    </div>
+
                 </a>
+
                 <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Manage Bookings</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#" class="login-button">Login</a></li>
+
+                    <li>
+                        <a href="#">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Manage Bookings
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Contact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="login-button">
+                            Login
+                        </a>
+                    </li>
+
                 </ul>
+
             </nav>
-            <button type="button" class="close-btn" onclick="goToPreviousPage()" title="Close" style="position: absolute; top: 20px; right: 25px; z-index: 1001;">&times;</button>
+
+            <button
+                type="button"
+                class="close-btn"
+                onclick="goToPreviousPage()"
+                title="Close"
+                style="position: absolute; top: 20px; right: 25px; z-index: 1001;">
+                &times;
+            </button>
+
         </header>
 
+
+        <!-- HERO -->
+
         <section class="hero">
+
             <div class="hero-content">
-                <h1>Travel With Comfort</h1>
-                <p>Book your journey with Nessus Tours & Travels</p>
+
+                <h1>
+                    Travel With Comfort
+                </h1>
+
+                <p>
+                    Book your journey with Nessus Tours & Travels
+                </p>
+
             </div>
+
         </section>
 
+
+        <!-- SEARCH BOX -->
+
         <form class="search-box">
+
             <div class="search-item">
-                <label>From</label>
-                <select><option>Select city</option></select>
+
+                <label>
+                    From
+                </label>
+
+                <select>
+                    <option>
+                        Select city
+                    </option>
+                </select>
+
             </div>
-            <div style="text-align: center; font-size: 20px; color: #087e8b;">⇄</div>
-            <div class="search-item">
-                <label>To</label>
-                <select><option>Select city</option></select>
+
+
+            <div style="text-align: center; font-size: 20px; color: #087e8b;">
+                ⇄
             </div>
+
+
             <div class="search-item">
-                <label>Journey Date</label>
+
+                <label>
+                    To
+                </label>
+
+                <select>
+                    <option>
+                        Select city
+                    </option>
+                </select>
+
+            </div>
+
+
+            <div class="search-item">
+
+                <label>
+                    Journey Date
+                </label>
+
                 <input type="date">
+
             </div>
+
+
             <div class="search-item">
-                <label>Return</label>
+
+                <label>
+                    Return
+                </label>
+
                 <input type="date">
+
             </div>
-            <button type="button" class="search-btn">Search Buses</button>
+
+
+            <button
+                type="button"
+                class="search-btn">
+
+                Search Buses
+
+            </button>
+
         </form>
+
     </div>
 
+
     <!-- =====================================================
-         MODAL OVERLAY (CLICK OUTSIDE TO GO TO PREVIOUS PAGE)
+         LOGIN MODAL
     ===================================================== -->
-    <div class="login-overlay" onclick="goToPreviousPage()">
 
-        <div class="login-card" onclick="event.stopPropagation()">
+    <div
+        class="login-overlay"
+        onclick="goToPreviousPage()">
 
-            <button type="button" class="close-btn" onclick="goToPreviousPage()" title="Close">&times;</button>
+        <div
+            class="login-card"
+            onclick="event.stopPropagation()">
 
-            <!-- 1. LOGIN FORM VIEW -->
-            <div id="loginView" class="form-view active">
+            <button
+                type="button"
+                class="close-btn"
+                onclick="goToPreviousPage()"
+                title="Close">
+
+                &times;
+
+            </button>
+
+
+            <!-- =================================================
+                 LOGIN FORM
+            ================================================= -->
+
+            <div
+                id="loginView"
+                class="form-view active">
+
                 <div class="login-header">
-                    <h2>Welcome Back</h2>
-                    <p>Sign in to manage your travel bookings</p>
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+                    <p>
+                        Sign in to manage your travel bookings
+                    </p>
+
                 </div>
 
+
                 <form onsubmit="handleAuthSubmit(event)">
-                    <div class="form-group">
-                        <label for="loginEmail">Email or Mobile Number</label>
-                        <input type="text" id="loginEmail" placeholder="Enter email or mobile" required>
-                        <span class="error-message" id="loginEmailError"></span>
-                    </div>
 
                     <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" placeholder="Enter password" required>
-                        <span class="error-message" id="loginPasswordError"></span>
+
+                        <label for="loginEmail">
+                            Email or Mobile Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="loginEmail"
+                            placeholder="Enter email or mobile"
+                            required>
+
+                        <span
+                            class="error-message"
+                            id="loginEmailError">
+                        </span>
+
                     </div>
+
+
+                    <div class="form-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter password"
+                            required>
+
+                        <span
+                            class="error-message"
+                            id="loginPasswordError">
+                        </span>
+
+                    </div>
+
 
                     <div class="form-options">
+
                         <label class="remember-me">
-                            <input type="checkbox"> Remember me
+
+                            <input type="checkbox">
+
+                            Remember me
+
                         </label>
-                        <button type="button" class="link-btn" onclick="switchView('forgotView')">Forgot Password?</button>
+
+
+                        <button
+                            type="button"
+                            class="link-btn"
+                            onclick="switchView('forgotView')">
+
+                            Forgot Password?
+
+                        </button>
+
                     </div>
 
-                    <button type="submit" class="submit-btn">Login</button>
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+
+                        Login
+
+                    </button>
+
                 </form>
 
+
                 <div class="form-footer">
-                    Don't have an account? 
-                    <button type="button" class="link-btn" onclick="switchView('registerView')">Register Now</button>
+
+                    Don't have an account?
+
+                    <button
+                        type="button"
+                        class="link-btn"
+                        onclick="switchView('registerView')">
+
+                        Register Now
+
+                    </button>
+
                 </div>
+
             </div>
 
-            <!-- 2. REGISTER FORM VIEW -->
-            <div id="registerView" class="form-view">
+
+            <!-- =================================================
+                 REGISTER FORM
+            ================================================= -->
+
+            <div
+                id="registerView"
+                class="form-view">
+
                 <div class="login-header">
-                    <h2>Create Account</h2>
-                    <p>Sign up to start booking your trips</p>
+
+                    <h2>
+                        Create Account
+                    </h2>
+
+                    <p>
+                        Sign up to start booking your trips
+                    </p>
+
                 </div>
+
 
                 <form onsubmit="handleAuthSubmit(event)">
-                    <div class="form-group">
-                        <label for="regName">Full Name</label>
-                        <input type="text" id="regName" placeholder="Enter your full name" required>
-                    </div>
+
+                    <!-- FULL NAME -->
 
                     <div class="form-group">
-                        <label for="regEmail">Email Address</label>
-                        <input type="email" id="regEmail" placeholder="Enter email address" required>
+
+                        <label for="regName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="regName"
+                            placeholder="Enter your full name"
+                            required>
+
                     </div>
+
+
+                    <!-- EMAIL -->
 
                     <div class="form-group">
-                        <label for="regPassword">Create Password</label>
-                        <input type="password" id="regPassword" placeholder="Create a strong password" required>
+
+                        <label for="regEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="regEmail"
+                            placeholder="Enter email address"
+                            required>
+
                     </div>
 
-                    <button type="submit" class="submit-btn">Register</button>
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="regPhone">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="regPhone"
+                            placeholder="Enter 10-digit mobile number"
+                            maxlength="10"
+                            required>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="regPassword">
+                            Create Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="regPassword"
+                            placeholder="Create a strong password"
+                            required>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+
+                        Register
+
+                    </button>
+
                 </form>
 
+
                 <div class="form-footer">
-                    Already have an account? 
-                    <button type="button" class="link-btn" onclick="switchView('loginView')">Login Here</button>
+
+                    Already have an account?
+
+                    <button
+                        type="button"
+                        class="link-btn"
+                        onclick="switchView('loginView')">
+
+                        Login Here
+
+                    </button>
+
                 </div>
+
             </div>
 
-            <!-- 3. FORGOT PASSWORD FORM VIEW -->
-            <div id="forgotView" class="form-view">
+
+            <!-- =================================================
+                 FORGOT PASSWORD
+            ================================================= -->
+
+            <div
+                id="forgotView"
+                class="form-view">
+
                 <div class="login-header">
-                    <h2>Reset Password</h2>
-                    <p>Enter your email to receive recovery instructions</p>
+
+                    <h2>
+                        Reset Password
+                    </h2>
+
+                    <p>
+                        Enter your email to receive recovery instructions
+                    </p>
+
                 </div>
+
 
                 <form onsubmit="handleAuthSubmit(event)">
+
                     <div class="form-group">
-                        <label for="resetEmail">Registered Email</label>
-                        <input type="email" id="resetEmail" placeholder="Enter your registered email" required>
+
+                        <label for="resetEmail">
+                            Registered Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="resetEmail"
+                            placeholder="Enter your registered email"
+                            required>
+
                     </div>
 
-                    <button type="submit" class="submit-btn">Send Reset Link</button>
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+
+                        Send Reset Link
+
+                    </button>
+
                 </form>
 
+
                 <div class="form-footer">
-                    Remembered password? 
-                    <button type="button" class="link-btn" onclick="switchView('loginView')">Back to Login</button>
+
+                    Remembered password?
+
+                    <button
+                        type="button"
+                        class="link-btn"
+                        onclick="switchView('loginView')">
+
+                        Back to Login
+
+                    </button>
+
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
-    <!-- JAVASCRIPT NAVIGATION LOGIC -->
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
     <script>
+
+        /*
+        ========================================================
+        GO BACK TO HOME
+        ========================================================
+        */
+
         function goToPreviousPage() {
+
             window.location.href = 'home.html';
+
         }
+
+
+        /*
+        ========================================================
+        SWITCH BETWEEN LOGIN / REGISTER / FORGOT PASSWORD
+        ========================================================
+        */
 
         function switchView(viewId) {
-            const views = document.querySelectorAll('.form-view');
-            views.forEach(view => view.classList.remove('active'));
-            document.getElementById(viewId).classList.add('active');
-        }
 
-        function handleAuthSubmit(event) {
-            event.preventDefault();
-            
-            const emailOrMobile = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            const emailInput = document.getElementById('loginEmail');
-            const passwordInput = document.getElementById('loginPassword');
-            const emailError = document.getElementById('loginEmailError');
-            const passwordError = document.getElementById('loginPasswordError');
-            
-            // Clear previous errors
-            clearErrors();
-            
-            let hasError = false;
-            
-            // Validate email or mobile number
-            if (!emailOrMobile) {
-                showError(emailInput, emailError, 'Please enter your email or mobile number');
-                hasError = true;
-            } else if (!validateEmailOrMobile(emailOrMobile)) {
-                showError(emailInput, emailError, 'Enter a valid email (with @) or 10-digit mobile number');
-                hasError = true;
-            }
-            
-            if (!password) {
-                showError(passwordInput, passwordError, 'Please enter your password');
-                hasError = true;
-            }
-            
-            if (!hasError) {
-                goToPreviousPage();
-            }
-        }
-        
-        function showError(input, errorElement, message) {
-            input.classList.add('error');
-            errorElement.textContent = message;
-            errorElement.classList.add('visible');
-        }
-        
-        function clearErrors() {
-            const inputs = document.querySelectorAll('.form-group input');
-            const errors = document.querySelectorAll('.error-message');
-            inputs.forEach(input => input.classList.remove('error'));
-            errors.forEach(error => {
-                error.textContent = '';
-                error.classList.remove('visible');
+            const views =
+                document.querySelectorAll('.form-view');
+
+            views.forEach(function (view) {
+
+                view.classList.remove('active');
+
             });
+
+            document
+                .getElementById(viewId)
+                .classList.add('active');
+
+            clearErrors();
+
         }
-        
+
+
+        /*
+        ========================================================
+        MAIN AUTHENTICATION FUNCTION
+        ========================================================
+        */
+
+        async function handleAuthSubmit(event) {
+
+            event.preventDefault();
+
+            const form = event.target;
+
+
+            /*
+            ====================================================
+            LOGIN
+            ====================================================
+            */
+
+            if (form.closest('#loginView')) {
+
+                const emailOrMobile =
+                    document
+                        .getElementById('loginEmail')
+                        .value
+                        .trim();
+
+                const password =
+                    document
+                        .getElementById('loginPassword')
+                        .value;
+
+                const emailInput =
+                    document.getElementById('loginEmail');
+
+                const passwordInput =
+                    document.getElementById('loginPassword');
+
+                const emailError =
+                    document.getElementById('loginEmailError');
+
+                const passwordError =
+                    document.getElementById('loginPasswordError');
+
+
+                clearErrors();
+
+
+                /*
+                VALIDATE LOGIN INPUT
+                */
+
+                if (!emailOrMobile) {
+
+                    showError(
+                        emailInput,
+                        emailError,
+                        'Please enter your email or mobile number'
+                    );
+
+                    return;
+
+                }
+
+
+                if (!validateEmailOrMobile(emailOrMobile)) {
+
+                    showError(
+                        emailInput,
+                        emailError,
+                        'Enter a valid email or 10-digit mobile number'
+                    );
+
+                    return;
+
+                }
+
+
+                if (!password) {
+
+                    showError(
+                        passwordInput,
+                        passwordError,
+                        'Please enter your password'
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                SEND LOGIN REQUEST TO BACKEND
+                */
+
+                try {
+
+                    const response =
+                        await fetch(
+                            'http://localhost:3000/api/login',
+                            {
+                                method: 'POST',
+
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+
+                                body: JSON.stringify({
+
+                                    emailOrMobile:
+                                        emailOrMobile,
+
+                                    password:
+                                        password
+
+                                })
+
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    /*
+                    LOGIN SUCCESS
+                    */
+
+                    if (data.success) {
+
+                        alert('Login successful!');
+
+                        window.location.href =
+                            'home.html';
+
+                    }
+
+
+                    /*
+                    LOGIN FAILED
+                    */
+
+                    else {
+
+                        showError(
+                            emailInput,
+                            emailError,
+                            data.message
+                        );
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.error(error);
+
+                    alert(
+                        'Unable to connect to the server.'
+                    );
+
+                }
+
+
+                return;
+
+            }
+
+
+            /*
+            ====================================================
+            REGISTER
+            ====================================================
+            */
+
+            if (form.closest('#registerView')) {
+
+                const fullName =
+                    document
+                        .getElementById('regName')
+                        .value
+                        .trim();
+
+                const email =
+                    document
+                        .getElementById('regEmail')
+                        .value
+                        .trim();
+
+                const phone =
+                    document
+                        .getElementById('regPhone')
+                        .value
+                        .trim();
+
+                const password =
+                    document
+                        .getElementById('regPassword')
+                        .value;
+
+
+                /*
+                VALIDATE REQUIRED FIELDS
+                */
+
+                if (
+                    !fullName ||
+                    !email ||
+                    !phone ||
+                    !password
+                ) {
+
+                    alert(
+                        'Please fill in all fields.'
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                VALIDATE PHONE
+                */
+
+                if (!/^\d{10}$/.test(phone)) {
+
+                    alert(
+                        'Please enter a valid 10-digit mobile number.'
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                SEND REGISTRATION REQUEST
+                */
+
+                try {
+
+                    const response =
+                        await fetch(
+                            'http://localhost:3000/api/register',
+                            {
+                                method: 'POST',
+
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+
+                                body: JSON.stringify({
+
+                                    full_name:
+                                        fullName,
+
+                                    email:
+                                        email,
+
+                                    phone:
+                                        phone,
+
+                                    password:
+                                        password
+
+                                })
+
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    /*
+                    REGISTRATION SUCCESS
+                    */
+
+                    if (data.success) {
+
+                        alert(
+                            'Registration successful! You can now login.'
+                        );
+
+                        form.reset();
+
+                        switchView('loginView');
+
+                    }
+
+
+                    /*
+                    REGISTRATION FAILED
+                    */
+
+                    else {
+
+                        alert(data.message);
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.error(error);
+
+                    alert(
+                        'Unable to connect to the server.'
+                    );
+
+                }
+
+
+                return;
+
+            }
+
+
+            /*
+            ====================================================
+            FORGOT PASSWORD
+            ====================================================
+            */
+
+            if (form.closest('#forgotView')) {
+
+                alert(
+                    'Password reset functionality will be added later.'
+                );
+
+            }
+
+        }
+
+
+        /*
+        ========================================================
+        SHOW ERROR
+        ========================================================
+        */
+
+        function showError(
+            input,
+            errorElement,
+            message
+        ) {
+
+            input.classList.add('error');
+
+            errorElement.textContent =
+                message;
+
+            errorElement.classList.add(
+                'visible'
+            );
+
+        }
+
+
+        /*
+        ========================================================
+        CLEAR ERRORS
+        ========================================================
+        */
+
+        function clearErrors() {
+
+            const inputs =
+                document.querySelectorAll(
+                    '.form-group input'
+                );
+
+            const errors =
+                document.querySelectorAll(
+                    '.error-message'
+                );
+
+
+            inputs.forEach(function (input) {
+
+                input.classList.remove(
+                    'error'
+                );
+
+            });
+
+
+            errors.forEach(function (error) {
+
+                error.textContent = '';
+
+                error.classList.remove(
+                    'visible'
+                );
+
+            });
+
+        }
+
+
+        /*
+        ========================================================
+        VALIDATE EMAIL OR MOBILE
+        ========================================================
+        */
+
         function validateEmailOrMobile(input) {
-            // Check if it's an email (contains @)
+
+            /*
+            EMAIL
+            */
+
             if (input.includes('@')) {
-                // Basic email validation - must have @ and at least one character before and after
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                const emailRegex =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
                 return emailRegex.test(input);
+
             }
-            // Check if it's a mobile number (exactly 10 digits)
+
+
+            /*
+            MOBILE
+            */
+
             else {
-                const mobileRegex = /^\d{10}$/;
+
+                const mobileRegex =
+                    /^\d{10}$/;
+
                 return mobileRegex.test(input);
+
             }
+
         }
 
-        // Clear error on input
-        document.getElementById('loginEmail').addEventListener('input', function() {
-            this.classList.remove('error');
-            document.getElementById('loginEmailError').classList.remove('visible');
-            document.getElementById('loginEmailError').textContent = '';
-        });
 
-        document.getElementById('loginPassword').addEventListener('input', function() {
-            this.classList.remove('error');
-            document.getElementById('loginPasswordError').classList.remove('visible');
-            document.getElementById('loginPasswordError').textContent = '';
-        });
+        /*
+        ========================================================
+        CLEAR LOGIN ERRORS WHILE TYPING
+        ========================================================
+        */
+
+        document
+            .getElementById('loginEmail')
+            .addEventListener(
+                'input',
+                function () {
+
+                    this.classList.remove(
+                        'error'
+                    );
+
+                    const error =
+                        document.getElementById(
+                            'loginEmailError'
+                        );
+
+                    error.classList.remove(
+                        'visible'
+                    );
+
+                    error.textContent = '';
+
+                }
+            );
+
+
+        document
+            .getElementById('loginPassword')
+            .addEventListener(
+                'input',
+                function () {
+
+                    this.classList.remove(
+                        'error'
+                    );
+
+                    const error =
+                        document.getElementById(
+                            'loginPasswordError'
+                        );
+
+                    error.classList.remove(
+                        'visible'
+                    );
+
+                    error.textContent = '';
+
+                }
+            );
+
     </script>
 
 </body>
