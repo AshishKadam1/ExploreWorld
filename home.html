@@ -980,6 +980,7 @@
                     <a href="contact.html">
                         Contact
                     </a>
+                
                 </li>
 
                 <li>
@@ -987,6 +988,7 @@
                         Login
                     </a>
                 </li>
+
 
             </ul>
 
@@ -2059,15 +2061,9 @@
                                             </div>
 
 
-                                            <button
-                                                type="button"
-                                                class="book-btn"
-                                                onclick="bookBus(${bus.id})">
-
-                                                Book Now
-
-                                            </button>
-
+                                           <button class="book-btn" onclick="bookBus(${bus.id})">
+    Book Now
+</button>
                                         </div>
 
                                     `;
@@ -2115,16 +2111,20 @@
 
 
         /* ================= BOOK BUS ================= */
+function bookBus(busId) {
 
-        function bookBus(busId) {
+    const from = document.getElementById("origin").value;
+    const to = document.getElementById("destination").value;
+    const date = document.getElementById("journeyDate").value;
 
-            alert(
-                "Selected Bus ID: " + busId
-            );
-
-        }
-
-
+    window.location.href =
+        "bus-results.html?from=" +
+        encodeURIComponent(from) +
+        "&to=" +
+        encodeURIComponent(to) +
+        "&date=" +
+        encodeURIComponent(date);
+}
         /* ================= POPULAR CITY ================= */
 
         function selectCity(city) {
