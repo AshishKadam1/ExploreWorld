@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nessus Tours & Travels</title>
+    <title>Technitude Tours & Travels</title>
 
     <style>
-
-        /* =====================================================
-           GLOBAL
-        ===================================================== */
 
         * {
             margin: 0;
@@ -41,136 +38,84 @@
         }
 
         a {
+            color: inherit;
             text-decoration: none;
         }
 
 
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
+        /* ================= NAVBAR ================= */
 
         header {
-            width: 100%;
-            height: 82px;
-            background: white;
-
             position: fixed;
             top: 0;
             left: 0;
-
+            width: 100%;
+            height: 82px;
+            background: rgba(255, 255, 255, 0.98);
             z-index: 1000;
-
-            box-shadow:
-                0 2px 15px rgba(0,0,0,0.10);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.10);
         }
 
         .navbar {
-            max-width: 1250px;
+            width: min(1250px, 94%);
             height: 82px;
-
             margin: auto;
-            padding: 0 25px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-
-        /* =====================================================
-           LOGO
-        ===================================================== */
-
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
-
-            text-decoration: none;
             cursor: pointer;
-
-            position: relative;
-            z-index: 2000;
         }
 
         .logo-icon {
             width: 58px;
             height: 58px;
-
             border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #00b4d8,
-                    #087e8b
-                );
-
+            background: linear-gradient(135deg, #00b4d8, #087e8b);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            color: white;
-
             font-weight: 800;
             font-size: 18px;
-
             border: 4px solid white;
-
-            box-shadow:
-                0 3px 10px rgba(0,0,0,0.18);
-
-            transition: 0.3s;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
         }
 
-        .logo:hover .logo-icon {
-            transform: scale(1.05);
-        }
-
-        .logo-text {
+        .logo-main,
+        .logo-sub {
+            display: block;
             line-height: 1.1;
         }
 
         .logo-main {
-            display: block;
-
             color: var(--secondary);
-
             font-size: 20px;
             font-weight: 800;
         }
 
         .logo-sub {
-            display: block;
-
             color: var(--primary);
-
             font-size: 16px;
             font-weight: 700;
         }
 
-
-        /* =====================================================
-           NAV LINKS
-        ===================================================== */
-
         .nav-links {
             list-style: none;
-
             display: flex;
             align-items: center;
-
-            gap: 32px;
+            gap: 30px;
         }
 
         .nav-links a {
-            text-decoration: none;
-
             color: var(--dark);
-
             font-size: 15px;
             font-weight: 600;
-
             transition: 0.3s;
         }
 
@@ -180,43 +125,34 @@
 
         .login-button {
             background: var(--primary);
-
             color: white !important;
-
             padding: 12px 25px;
-
             border-radius: 25px;
         }
 
         .login-button:hover {
-            background: var(--primary-dark);
+            background: var(--primary-dark) !important;
         }
 
 
-        /* =====================================================
-           HERO
-        ===================================================== */
+        /* ================= HERO ================= */
 
         .hero {
-            height: 555px;
-
+            min-height: 555px;
             margin-top: 82px;
-
             position: relative;
-
             overflow: hidden;
-
             display: flex;
             align-items: center;
 
             background-image:
                 linear-gradient(
                     90deg,
-                    rgba(255,255,255,0.80) 0%,
-                    rgba(255,255,255,0.48) 38%,
-                    rgba(255,255,255,0.08) 75%
+                    rgba(255,255,255,0.90) 0%,
+                    rgba(255,255,255,0.62) 38%,
+                    rgba(255,255,255,0.10) 80%
                 ),
-                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1900&q=90");
+                url("https://daimlerbuses-mbngw.scene7.com/is/image/daimlerbusesmbngw/s-tc-hdh-models-keyvisual-EB51674:16x9?dpr=off&ts=1769443990668");
 
             background-size: cover;
             background-position: center;
@@ -225,156 +161,102 @@
 
         .hero::after {
             content: "";
-
             position: absolute;
-
             left: 0;
             right: 0;
             bottom: 0;
-
             height: 120px;
-
-            background:
-                linear-gradient(
-                    transparent,
-                    rgba(245,249,250,0.98)
-                );
-
-            z-index: 2;
+            background: linear-gradient(
+                transparent,
+                rgba(245, 249, 250, 0.98)
+            );
+            z-index: 1;
         }
 
         .hero-content {
-            width: 1200px;
-            max-width: 90%;
-
+            width: min(1200px, 90%);
             margin: auto;
-
             position: relative;
-
-            z-index: 5;
-
-            padding-bottom: 50px;
+            z-index: 3;
+            padding-bottom: 55px;
         }
 
         .hero-content h1 {
-            font-size: 58px;
-
-            line-height: 1.1;
-
             max-width: 750px;
-
+            font-size: 58px;
+            line-height: 1.1;
             color: #073b4c;
-
             font-weight: 800;
-
             margin-bottom: 18px;
-
-            text-shadow:
-                0 3px 6px rgba(255,255,255,0.7);
+            text-shadow: 0 3px 6px rgba(255,255,255,0.7);
         }
 
         .hero-content p {
-            font-size: 21px;
-
             max-width: 650px;
-
+            font-size: 21px;
             color: #15566b;
-
             margin-bottom: 28px;
-
             font-weight: 500;
         }
 
         .hero-features {
             display: flex;
-
             gap: 28px;
-
             flex-wrap: wrap;
         }
 
         .hero-feature {
             display: flex;
-
             align-items: center;
-
             gap: 9px;
-
             font-size: 15px;
-
             font-weight: 700;
-
             color: #073b4c;
         }
 
         .hero-feature-icon {
-            width: 32px;
-            height: 32px;
-
+            width: 34px;
+            height: 34px;
             background: var(--primary);
-
             color: white;
-
             border-radius: 50%;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
-            font-weight: bold;
-
-            box-shadow:
-                0 3px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.18);
         }
 
 
-        /* =====================================================
-           SEARCH BOX
-        ===================================================== */
+        /* ================= SEARCH ================= */
 
         .search-box {
-            width: min(94%, 1150px);
-
+            width: min(94%, 1180px);
             margin: -55px auto 60px;
-
             position: relative;
-
             z-index: 50;
-
             background: white;
-
-            border-radius: 20px;
-
+            border-radius: 22px;
             padding: 25px;
-
-            box-shadow:
-                0 10px 35px rgba(0,50,70,0.18);
+            box-shadow: 0 10px 35px rgba(0,50,70,0.18);
 
             display: grid;
 
             grid-template-columns:
-                1.2fr
+                minmax(180px, 1.2fr)
                 50px
-                1.2fr
-                1fr
-                1fr
-                170px;
+                minmax(180px, 1.2fr)
+                minmax(160px, 1fr)
+                175px;
 
             gap: 10px;
-
             align-items: end;
         }
 
         .search-item label {
             display: block;
-
             font-size: 13px;
-
             font-weight: 700;
-
             color: #52656e;
-
             margin-bottom: 7px;
         }
 
@@ -384,849 +266,435 @@
 
         .input-icon {
             position: absolute;
-
             left: 13px;
             top: 50%;
-
             transform: translateY(-50%);
-
             font-size: 17px;
-
             z-index: 2;
+            pointer-events: none;
         }
 
         .search-item select,
         .search-item input {
             width: 100%;
-
             height: 53px;
-
             border: 1px solid var(--border);
-
             border-radius: 10px;
-
-            padding: 0 10px 0 42px;
-
+            padding: 0 12px 0 42px;
             background: white;
-
             color: var(--dark);
-
             outline: none;
-
             font-size: 14px;
         }
 
         .search-item select:focus,
         .search-item input:focus {
             border-color: var(--primary);
-
-            box-shadow:
-                0 0 0 3px rgba(8,126,139,0.10);
+            box-shadow: 0 0 0 3px rgba(8,126,139,0.10);
         }
-
-
-        /* =====================================================
-           SWAP BUTTON
-        ===================================================== */
 
         .swap {
             width: 42px;
             height: 42px;
-
             border-radius: 50%;
-
             border: 1px solid #bcdce2;
-
             background: #e4f7f9;
-
             color: var(--primary);
-
             font-size: 22px;
-
             cursor: pointer;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
             margin-bottom: 5px;
-
             transition: 0.3s;
         }
 
         .swap:hover {
             background: var(--primary);
-
             color: white;
-
             transform: rotate(180deg);
         }
 
-
-        /* =====================================================
-           SEARCH BUTTON
-        ===================================================== */
-
         .search-btn {
             height: 53px;
-
             border: none;
-
             border-radius: 28px;
-
             background: var(--primary);
-
             color: white;
-
             font-size: 15px;
-
             font-weight: 700;
-
             cursor: pointer;
-
             transition: 0.3s;
         }
 
         .search-btn:hover {
             background: var(--primary-dark);
-
             transform: translateY(-2px);
-
-            box-shadow:
-                0 8px 20px rgba(8,126,139,0.25);
+            box-shadow: 0 8px 20px rgba(8,126,139,0.25);
         }
 
 
-        /* =====================================================
-           OFFERS
-        ===================================================== */
+        /* ================= COMMON SECTIONS ================= */
 
-        .offers-section {
-            max-width: 1200px;
-
-            margin: 0 auto 65px;
-
-            padding: 0 20px;
-        }
-
-        .offers-header {
-            display: flex;
-
-            align-items: center;
-            justify-content: space-between;
-
-            margin-bottom: 22px;
-        }
-
-        .offers-header h2 {
-            font-size: 28px;
-
-            color: #182b35;
-        }
-
-        .offers-header span {
-            color: var(--primary);
-
-            font-size: 14px;
-
-            font-weight: 700;
-        }
-
-        .offer-tabs {
-            display: flex;
-
-            gap: 12px;
-
-            margin-bottom: 20px;
-        }
-
-        .offer-tab {
-            padding: 9px 22px;
-
-            border-radius: 10px;
-
-            background: white;
-
-            border: 1px solid #b9c6ca;
-
-            color: #25353c;
-
-            font-size: 15px;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-        }
-
-        .offer-tab:hover {
-            border-color: var(--primary);
-
-            color: var(--primary);
-        }
-
-        .offer-tab.active {
-            background: #dff5f7;
-
-            color: var(--primary);
-
-            border-color: #dff5f7;
-
-            font-weight: 700;
-        }
-
-        .offers-container {
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
-            gap: 15px;
-        }
-
-        .offer-card {
-            height: 250px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            border-radius: 18px;
-
-            padding: 19px;
-
-            transition: 0.3s;
-        }
-
-        .offer-card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 12px 28px rgba(0,0,0,0.12);
-        }
-
-        .offer-card-1 {
-            background:
-                linear-gradient(
-                    135deg,
-                    #d8f1f4,
-                    #b9e5ea
-                );
-        }
-
-        .offer-card-2 {
-            background:
-                linear-gradient(
-                    135deg,
-                    #d4eef5,
-                    #b4dfea
-                );
-        }
-
-        .offer-card-3 {
-            background:
-                linear-gradient(
-                    135deg,
-                    #d9f4ff,
-                    #b9e8f6
-                );
-        }
-
-        .offer-card-4 {
-            background:
-                linear-gradient(
-                    135deg,
-                    #e4f5ee,
-                    #c7e9db
-                );
-        }
-
-        .offer-card::before {
-            content: "";
-
-            position: absolute;
-
-            width: 220px;
-            height: 220px;
-
-            right: -80px;
-            top: -80px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    rgba(255,255,255,0.45) 1.5px,
-                    transparent 1.5px
-                );
-
-            background-size: 8px 8px;
-
-            opacity: 0.7;
-        }
-
-        .offer-text {
-            position: relative;
-
-            z-index: 10;
-
-            width: 68%;
-        }
-
-        .offer-type {
-            display: inline-block;
-
-            background: #5b6265;
-
-            color: white;
-
-            padding: 7px 11px;
-
-            border-radius: 8px;
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            margin-bottom: 13px;
-        }
-
-        .offer-card h3 {
-            font-size: 18px;
-
-            line-height: 1.35;
-
-            color: #182a32;
-
-            margin-bottom: 13px;
-        }
-
-        .offer-card p {
-            font-size: 13px;
-
-            color: #4c626a;
-
-            margin-bottom: 18px;
-        }
-
-        .coupon-code {
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            background: white;
-
-            padding: 10px 15px;
-
-            border-radius: 25px;
-
-            color: #26353b;
-
-            font-size: 13px;
-
-            box-shadow:
-                0 3px 9px rgba(0,0,0,0.07);
-        }
-
-        .coupon-icon {
-            font-size: 18px;
-        }
-
-
-        /* =====================================================
-           BUS ILLUSTRATION
-        ===================================================== */
-
-        .bus-illustration {
-            position: absolute;
-
-            width: 155px;
-            height: 95px;
-
-            right: 5px;
-            bottom: 15px;
-
-            z-index: 5;
-
-            transform: rotate(-2deg);
-        }
-
-        .bus-body {
-            position: absolute;
-
-            width: 135px;
-            height: 57px;
-
-            right: 5px;
-            bottom: 19px;
-
-            border-radius: 13px 17px 7px 7px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #00aeca,
-                    #087e8b
-                );
-
-            border: 3px solid #17313b;
-        }
-
-        .bus-window {
-            position: absolute;
-
-            top: 7px;
-            left: 13px;
-            right: 11px;
-
-            height: 24px;
-
-            background: #163743;
-
-            border-radius: 6px;
-
-            overflow: hidden;
-        }
-
-        .bus-window::after {
-            content: "";
-
-            position: absolute;
-
-            left: 35px;
-            top: 0;
-
-            width: 3px;
-            height: 100%;
-
-            background: #79d8e5;
-        }
-
-        .bus-front {
-            position: absolute;
-
-            right: -3px;
-            bottom: 9px;
-
-            width: 20px;
-            height: 26px;
-
-            background: #0c5864;
-
-            border-radius: 5px;
-        }
-
-        .bus-light {
-            position: absolute;
-
-            right: 0;
-            bottom: 17px;
-
-            width: 6px;
-            height: 7px;
-
-            background: #fff;
-
-            border-radius: 50%;
-        }
-
-        .bus-wheel {
-            position: absolute;
-
-            width: 25px;
-            height: 25px;
-
-            bottom: 5px;
-
-            background: #172f3d;
-
-            border-radius: 50%;
-
-            border: 5px solid #65777c;
-        }
-
-        .bus-wheel-1 {
-            left: 18px;
-        }
-
-        .bus-wheel-2 {
-            right: 20px;
-        }
-
-
-        /* =====================================================
-           WEEKEND OFFER
-        ===================================================== */
-
-        .weekend-badge {
-            position: absolute;
-
-            right: 13px;
-            bottom: 18px;
-
-            width: 115px;
-            height: 115px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #087e8b,
-                    #00b4d8
-                );
-
-            border: 5px solid rgba(255,255,255,0.75);
-
-            color: white;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            font-weight: 800;
-
-            transform: rotate(-7deg);
-
-            box-shadow:
-                0 7px 15px rgba(0,80,100,0.25);
-        }
-
-        .weekend-badge span {
-            font-size: 11px;
-        }
-
-        .weekend-badge strong {
-            font-size: 17px;
-        }
-
-
-        /* =====================================================
-           PAYMENT CARD
-        ===================================================== */
-
-        .payment-card-icon {
-            position: absolute;
-
-            right: 15px;
-            bottom: 25px;
-
-            width: 120px;
-            height: 75px;
-
-            background: white;
-
-            border-radius: 8px;
-
-            transform: rotate(-5deg);
-
-            box-shadow:
-                0 7px 15px rgba(0,0,0,0.12);
-        }
-
-        .payment-card-icon::before {
-            content: "NESSUS PAY";
-
-            position: absolute;
-
-            left: 10px;
-            top: 10px;
-
-            font-size: 9px;
-
-            font-weight: 800;
-
-            color: var(--primary);
-        }
-
-        .payment-card-icon::after {
-            content: "•••• 4521";
-
-            position: absolute;
-
-            left: 10px;
-            bottom: 12px;
-
-            font-size: 10px;
-
-            color: #555;
-        }
-
-
-        /* =====================================================
-           DESTINATIONS
-        ===================================================== */
-
-        .cities-section {
-            max-width: 1200px;
-
+        .section {
+            width: min(1200px, 92%);
             margin: 0 auto 70px;
-
-            padding: 0 20px;
         }
 
         .section-heading {
             text-align: center;
-
             margin-bottom: 30px;
         }
 
         .section-heading h2 {
             font-size: 30px;
-
             color: #182b35;
-
             margin-bottom: 8px;
         }
 
         .section-heading p {
             color: #62747c;
-
             font-size: 15px;
         }
 
+
+        /* ================= OFFERS ================= */
+
+        .offers-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 22px;
+        }
+
+        .offers-header h2 {
+            font-size: 28px;
+            color: #182b35;
+        }
+
+        .offers-header span {
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .offer-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .offer-tab {
+            padding: 9px 22px;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid #b9c6ca;
+            color: #25353c;
+            font-size: 15px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .offer-tab.active {
+            background: #dff5f7;
+            color: var(--primary);
+            border-color: #dff5f7;
+            font-weight: 700;
+        }
+
+        .offers-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .offer-card {
+            min-height: 250px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            padding: 19px;
+            transition: 0.3s;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+
+        .offer-card-1 {
+            background: linear-gradient(135deg,#d8f1f4,#b9e5ea);
+        }
+
+        .offer-card-2 {
+            background: linear-gradient(135deg,#d4eef5,#b4dfea);
+        }
+
+        .offer-card-3 {
+            background: linear-gradient(135deg,#d9f4ff,#b9e8f6);
+        }
+
+        .offer-card-4 {
+            background: linear-gradient(135deg,#e4f5ee,#c7e9db);
+        }
+
+        .offer-text {
+            position: relative;
+            z-index: 2;
+            width: 75%;
+        }
+
+        .offer-type {
+            display: inline-block;
+            background: #5b6265;
+            color: white;
+            padding: 7px 11px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 13px;
+        }
+
+        .offer-card h3 {
+            font-size: 18px;
+            line-height: 1.35;
+            color: #182a32;
+            margin-bottom: 13px;
+        }
+
+        .offer-card p {
+            font-size: 13px;
+            color: #4c626a;
+            margin-bottom: 18px;
+        }
+
+        .coupon-code {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            color: #26353b;
+            font-size: 13px;
+            box-shadow: 0 3px 9px rgba(0,0,0,0.07);
+        }
+
+        .weekend-badge {
+            position: absolute;
+            right: 13px;
+            bottom: 18px;
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#087e8b,#00b4d8);
+            border: 5px solid rgba(255,255,255,0.75);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 800;
+            transform: rotate(-7deg);
+        }
+
+        .payment-card-icon {
+            position: absolute;
+            right: 15px;
+            bottom: 25px;
+            width: 120px;
+            height: 75px;
+            background: white;
+            border-radius: 8px;
+            transform: rotate(-5deg);
+            box-shadow: 0 7px 15px rgba(0,0,0,0.12);
+        }
+
+        .payment-card-icon::before {
+            content: "TECHNITUDE PAY";
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            font-size: 9px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .payment-card-icon::after {
+            content: "•••• 4521";
+            position: absolute;
+            left: 10px;
+            bottom: 12px;
+            font-size: 10px;
+            color: #555;
+        }
+
+
+        /* ================= CITIES ================= */
+
         .cities {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
         .city-card {
             background: white;
-
             border: 1px solid var(--border);
-
             border-radius: 16px;
-
             padding: 22px;
-
             display: flex;
-
             align-items: center;
-
-            gap: 18px;
-
+            gap: 15px;
             cursor: pointer;
-
             transition: 0.3s;
-
-            box-shadow:
-                0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .city-card:hover {
             transform: translateY(-5px);
-
             border-color: var(--primary);
-
-            box-shadow:
-                0 10px 25px rgba(0,0,0,0.10);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.10);
         }
 
         .city-icon {
-            width: 58px;
-            height: 58px;
-
+            width: 55px;
+            height: 55px;
+            flex: 0 0 55px;
             border-radius: 50%;
-
             background: #e5f6f8;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
-            font-size: 28px;
+            font-size: 26px;
         }
 
         .city-card h3 {
             color: #18333f;
-
             margin-bottom: 5px;
         }
 
         .city-card p {
             color: #74838a;
-
             font-size: 14px;
         }
 
 
-        /* =====================================================
-           SERVICES
-        ===================================================== */
+        /* ================= SERVICES ================= */
 
         .features {
-            max-width: 1200px;
-
-            margin: 0 auto 70px;
-
-            padding: 0 20px;
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
         .feature-card {
             background: white;
-
             border-radius: 18px;
-
             padding: 30px;
-
             text-align: center;
-
             border: 1px solid var(--border);
-
             transition: 0.3s;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-
-            box-shadow:
-                0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
 
         .feature-icon {
             width: 65px;
             height: 65px;
-
             margin: 0 auto 18px;
-
             border-radius: 50%;
-
             background: #e3f7f9;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             font-size: 30px;
         }
 
         .feature-card h3 {
             color: #18333f;
-
             margin-bottom: 10px;
         }
 
         .feature-card p {
             color: #687980;
-
             font-size: 14px;
-
             line-height: 1.6;
         }
 
 
-        /* =====================================================
-           WHATSAPP
-        ===================================================== */
+        /* ================= WHATSAPP ================= */
 
         .whatsapp {
             position: fixed;
-
             right: 25px;
             bottom: 25px;
-
             width: 55px;
             height: 55px;
-
             background: #25d366;
-
             border-radius: 50%;
-
             color: white;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             font-size: 25px;
-
             cursor: pointer;
-
             z-index: 999;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.20);
-
-            transition: 0.3s;
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.20);
         }
 
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+        /* ================= FOOTER ================= */
 
         footer {
             background: #123746;
-
             color: white;
-
             text-align: center;
-
             padding: 40px 20px;
         }
 
         footer h3 {
             font-size: 22px;
-
             margin-bottom: 10px;
         }
 
         footer p {
             color: #c6d8dd;
-
             margin: 8px 0;
-
             font-size: 14px;
         }
 
 
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
+        /* ================= RESPONSIVE ================= */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1100px) {
 
             .search-box {
                 grid-template-columns:
                     1fr
                     50px
+                    1fr
                     1fr;
             }
 
             .search-btn {
-                grid-column: span 3;
+                grid-column: 1 / -1;
             }
 
             .offers-container {
-                grid-template-columns:
-                    repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
 
+            .cities {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
 
@@ -1238,28 +706,22 @@
 
             .navbar {
                 height: auto;
-
-                padding: 12px 20px;
-
+                padding: 12px 0;
                 flex-direction: column;
-
                 gap: 15px;
             }
 
             .nav-links {
                 gap: 15px;
-
                 flex-wrap: wrap;
-
                 justify-content: center;
             }
 
             .hero {
                 margin-top: 125px;
+                min-height: 500px;
 
-                height: 480px;
-
-                background-position: center;
+                background-position: 65% center;
             }
 
             .hero-content h1 {
@@ -1272,21 +734,17 @@
 
             .hero-features {
                 gap: 12px;
-
                 flex-direction: column;
             }
 
             .search-box {
-                grid-template-columns: 1fr;
-
                 width: 90%;
-
+                grid-template-columns: 1fr;
                 margin-top: -30px;
             }
 
             .swap {
                 margin: auto;
-
                 transform: rotate(90deg);
             }
 
@@ -1298,32 +756,16 @@
                 grid-column: auto;
             }
 
-            .offers-container {
-                grid-template-columns: 1fr;
-            }
-
-            .cities {
-                grid-template-columns: 1fr;
-            }
-
+            .offers-container,
+            .cities,
             .features {
                 grid-template-columns: 1fr;
             }
 
             .offers-header {
                 flex-direction: column;
-
                 align-items: flex-start;
-
                 gap: 10px;
-            }
-
-            .offer-tabs {
-                overflow-x: auto;
-            }
-
-            .offer-tab {
-                white-space: nowrap;
             }
         }
 
@@ -1362,11 +804,6 @@
             .search-box {
                 padding: 18px;
             }
-
-            .offer-card {
-                height: 245px;
-            }
-
         }
 
     </style>
@@ -1376,1069 +813,1295 @@
 <body>
 
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+    <!-- ================= NAVBAR ================= -->
 
-<header>
+    <header>
 
-    <nav class="navbar">
+        <nav class="navbar">
 
-        <!-- =================================================
-             LOGO - CLICKING THIS ALWAYS OPENS HOME
-        ================================================== -->
+            <!-- LOGO -->
+            <!-- Clicking logo opens THIS SAME PAGE -->
 
-        <a
-            href="./index.html"
-            class="logo"
-            aria-label="Nessus Tours and Travels Home"
-        >
+            <a href="index.html"
+               class="logo"
+               aria-label="Technitude Tours and Travels Home">
 
-            <div class="logo-icon">
-                NT
+                <div class="logo-icon">
+                    TT
+                </div>
+
+                <div class="logo-text">
+
+                    <span class="logo-main">
+                        TECHNITUDE TOURS
+                    </span>
+
+                    <span class="logo-sub">
+                        &amp; TRAVELS
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- NAVIGATION -->
+
+            <ul class="nav-links">
+
+                <!-- Same page -->
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="bookings.html">
+                        Manage Bookings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html" class="login-button">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Travel With Comfort
+            </h1>
+
+            <p>
+                Book your journey with
+                Technitude Tours &amp; Travels
+            </p>
+
+            <div class="hero-features">
+
+                <div class="hero-feature">
+
+                    <span class="hero-feature-icon">
+                        ✓
+                    </span>
+
+                    Safe Travel
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <span class="hero-feature-icon">
+                        🚌
+                    </span>
+
+                    Comfortable Bus
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <span class="hero-feature-icon">
+                        ✓
+                    </span>
+
+                    24/7 Support
+
+                </div>
+
             </div>
 
-            <div class="logo-text">
+        </div>
 
-                <span class="logo-main">
-                    NESSUS TOURS
+    </section>
+
+
+
+    <!-- ================= BOOKING SEARCH ================= -->
+
+    <form class="search-box" id="searchForm">
+
+        <!-- From / Swap / To generated by JavaScript -->
+        <div id="fromToSection"></div>
+
+
+        <!-- Journey Date -->
+
+        <div class="search-item">
+
+            <label for="journeyDate">
+                Journey Date
+            </label>
+
+            <div class="input-wrapper">
+
+                <span class="input-icon">
+                    📅
                 </span>
 
-                <span class="logo-sub">
-                    & TRAVELS
-                </span>
-
-            </div>
-
-        </a>
-
-
-        <!-- =================================================
-             NAVIGATION
-        ================================================== -->
-
-        <ul class="nav-links">
-
-            <li>
-                <a href="./index.html">
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="./bookings.html">
-                    Manage Bookings
-                </a>
-            </li>
-
-            <li>
-                <a href="./contact.html">
-                    Contact
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="./login.html"
-                    class="login-button"
+                <input
+                    type="date"
+                    id="journeyDate"
+                    name="journeyDate"
+                    required
                 >
-                    Login
-                </a>
-            </li>
 
-        </ul>
+            </div>
 
-    </nav>
-
-</header>
+        </div>
 
 
+        <!-- Search -->
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+        <button
+            type="submit"
+            class="search-btn"
+        >
+            🔍 Search Buses
+        </button>
 
-<section class="hero">
-
-    <div class="hero-content">
-
-        <h1>
-            Travel With Comfort
-        </h1>
-
-        <p>
-            Book your journey with Nessus Tours & Travels
-        </p>
+    </form>
 
 
-        <div class="hero-features">
 
-            <div class="hero-feature">
+    <!-- ================= OFFERS ================= -->
 
-                <span class="hero-feature-icon">
-                    ✓
-                </span>
+    <section class="section">
 
-                Safe Travel
+        <div class="offers-header">
+
+            <h2>
+                Offers &amp; Deals
+            </h2>
+
+            <span>
+                Best deals for your journey
+            </span>
+
+        </div>
+
+
+        <div class="offer-tabs">
+
+            <button
+                type="button"
+                class="offer-tab active"
+                onclick="filterOffers('all', this)"
+            >
+                All
+            </button>
+
+            <button
+                type="button"
+                class="offer-tab"
+                onclick="filterOffers('bus', this)"
+            >
+                🚌 Bus
+            </button>
+
+            <button
+                type="button"
+                class="offer-tab"
+                onclick="filterOffers('special', this)"
+            >
+                ⭐ Special
+            </button>
+
+            <button
+                type="button"
+                class="offer-tab"
+                onclick="filterOffers('payment', this)"
+            >
+                💳 Payment
+            </button>
+
+        </div>
+
+
+        <div class="offers-container">
+
+
+            <!-- OFFER 1 -->
+
+            <div
+                class="offer-card offer-card-1"
+                data-type="bus"
+            >
+
+                <div class="offer-text">
+
+                    <span class="offer-type">
+                        Bus
+                    </span>
+
+                    <h3>
+                        Save up to ₹250 on bus tickets
+                    </h3>
+
+                    <p>
+                        Valid till 31 Oct
+                    </p>
+
+                    <div class="coupon-code">
+                        🏷
+                        <strong>
+                            TECH250
+                        </strong>
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <div class="hero-feature">
 
-                <span class="hero-feature-icon">
+            <!-- OFFER 2 -->
+
+            <div
+                class="offer-card offer-card-2"
+                data-type="bus"
+            >
+
+                <div class="offer-text">
+
+                    <span class="offer-type">
+                        Bus
+                    </span>
+
+                    <h3>
+                        Save up to ₹300 on bus tickets
+                    </h3>
+
+                    <p>
+                        Valid till 31 Oct
+                    </p>
+
+                    <div class="coupon-code">
+                        🏷
+                        <strong>
+                            BUS300
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OFFER 3 -->
+
+            <div
+                class="offer-card offer-card-3"
+                data-type="special"
+            >
+
+                <div class="offer-text">
+
+                    <span class="offer-type">
+                        Special
+                    </span>
+
+                    <h3>
+                        Save up to ₹200 on weekend journeys
+                    </h3>
+
+                    <p>
+                        Valid till 31 Oct
+                    </p>
+
+                    <div class="coupon-code">
+                        🏷
+                        <strong>
+                            WEEKEND200
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="weekend-badge">
+
+                    <span>
+                        TECHNITUDE
+                    </span>
+
+                    <strong>
+                        WEEKEND
+                    </strong>
+
+                    <span>
+                        OFFER
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OFFER 4 -->
+
+            <div
+                class="offer-card offer-card-4"
+                data-type="payment"
+            >
+
+                <div class="offer-text">
+
+                    <span class="offer-type">
+                        Payment
+                    </span>
+
+                    <h3>
+                        Save up to ₹500 on selected payments
+                    </h3>
+
+                    <p>
+                        Valid till 31 Oct
+                    </p>
+
+                    <div class="coupon-code">
+                        🏷
+                        <strong>
+                            TECH500
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="payment-card-icon"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= POPULAR DESTINATIONS ================= -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                Popular Destinations
+            </h2>
+
+            <p>
+                Explore popular routes from
+                Technitude Tours &amp; Travels
+            </p>
+
+        </div>
+
+
+        <div class="cities">
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Kolhapur')"
+            >
+
+                <div class="city-icon">
+                    🏛️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Kolhapur
+                    </h3>
+
+                    <p>
+                        Maharashtra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Pune')"
+            >
+
+                <div class="city-icon">
+                    🏙️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Pune
+                    </h3>
+
+                    <p>
+                        Maharashtra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Mumbai')"
+            >
+
+                <div class="city-icon">
+                    🌆
+                </div>
+
+                <div>
+
+                    <h3>
+                        Mumbai
+                    </h3>
+
+                    <p>
+                        Maharashtra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Nashik')"
+            >
+
+                <div class="city-icon">
+                    🛕
+                </div>
+
+                <div>
+
+                    <h3>
+                        Nashik
+                    </h3>
+
+                    <p>
+                        Maharashtra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Nagpur')"
+            >
+
+                <div class="city-icon">
+                    🌇
+                </div>
+
+                <div>
+
+                    <h3>
+                        Nagpur
+                    </h3>
+
+                    <p>
+                        Maharashtra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Satara')"
+            >
+
+                <div class="city-icon">
+                    ⛰️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Satara
+                    </h3>
+
+                    <p>
+                        Maharashtra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Sangli')"
+            >
+
+                <div class="city-icon">
+                    🌉
+                </div>
+
+                <div>
+
+                    <h3>
+                        Sangli
+                    </h3>
+
+                    <p>
+                        Maharashtra
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="city-card"
+                onclick="selectCity('Goa')"
+            >
+
+                <div class="city-icon">
+                    🏖️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Goa
+                    </h3>
+
+                    <p>
+                        India
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <h2>
+                Why Choose Technitude?
+            </h2>
+
+            <p>
+                Simple, safe and comfortable travel experience
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
                     🚌
-                </span>
+                </div>
 
-                Comfortable Bus
+                <h3>
+                    Comfortable Journey
+                </h3>
+
+                <p>
+                    Travel comfortably with clean,
+                    reliable and convenient buses.
+                </p>
 
             </div>
 
 
-            <div class="hero-feature">
 
-                <span class="hero-feature-icon">
-                    ✓
-                </span>
+            <div class="feature-card">
 
-                24/7 Support
+                <div class="feature-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Secure Booking
+                </h3>
+
+                <p>
+                    Simple and secure booking
+                    experience for all your journeys.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎧
+                </div>
+
+                <h3>
+                    24/7 Support
+                </h3>
+
+                <p>
+                    Our support team is available
+                    whenever you need assistance.
+                </p>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
 
-<!-- =====================================================
-     BOOKING SEARCH
-===================================================== -->
+    <!-- ================= WHATSAPP ================= -->
 
-<form
-    class="search-box"
-    id="searchForm"
->
-
-
-    <!-- FROM -->
-
-    <div class="search-item">
-
-        <label>
-            From
-        </label>
-
-        <div class="input-wrapper">
-
-            <span class="input-icon">
-                🚌
-            </span>
-
-            <select
-                id="origin"
-                required
-            >
-
-                <option value="">
-                    Select city
-                </option>
-
-                <option value="Kolhapur">
-                    Kolhapur
-                </option>
-
-                <option value="Pune">
-                    Pune
-                </option>
-
-                <option value="Mumbai">
-                    Mumbai
-                </option>
-
-            </select>
-
-        </div>
-
-    </div>
-
-
-    <!-- SWAP -->
-
-    <button
-        type="button"
-        class="swap"
-        id="swapBtn"
-        title="Swap cities"
+    <div
+        class="whatsapp"
+        onclick="openWhatsApp()"
+        title="Contact us"
+        aria-label="Contact Technitude on WhatsApp"
     >
-        ⇄
-    </button>
-
-
-    <!-- TO -->
-
-    <div class="search-item">
-
-        <label>
-            To
-        </label>
-
-        <div class="input-wrapper">
-
-            <span class="input-icon">
-                📍
-            </span>
-
-            <select
-                id="destination"
-                required
-            >
-
-                <option value="">
-                    Select city
-                </option>
-
-                <option value="Kolhapur">
-                    Kolhapur
-                </option>
-
-                <option value="Pune">
-                    Pune
-                </option>
-
-                <option value="Mumbai">
-                    Mumbai
-                </option>
-
-            </select>
-
-        </div>
-
+        ☎
     </div>
 
 
-    <!-- JOURNEY DATE -->
 
-    <div class="search-item">
+    <!-- ================= FOOTER ================= -->
 
-        <label>
-            Journey Date
-        </label>
-
-        <div class="input-wrapper">
-
-            <span class="input-icon">
-                📅
-            </span>
-
-            <input
-                type="date"
-                id="journeyDate"
-                required
-            >
-
-        </div>
-
-    </div>
-
-
-    <!-- RETURN -->
-
-    <div class="search-item">
-
-        <label>
-            Return
-        </label>
-
-        <div class="input-wrapper">
-
-            <span class="input-icon">
-                📅
-            </span>
-
-            <input
-                type="date"
-                id="returnDate"
-            >
-
-        </div>
-
-    </div>
-
-
-    <!-- SEARCH -->
-
-    <button
-        type="submit"
-        class="search-btn"
-    >
-        🔍 Search Buses
-    </button>
-
-</form>
-
-
-
-<!-- =====================================================
-     OFFERS
-===================================================== -->
-
-<section class="offers-section">
-
-    <div class="offers-header">
-
-        <h2>
-            Offers & Deals
-        </h2>
-
-        <span>
-            Best deals for your journey
-        </span>
-
-    </div>
-
-
-    <!-- TABS -->
-
-    <div class="offer-tabs">
-
-        <button
-            class="offer-tab active"
-            onclick="filterOffers('all', this)"
-        >
-            All
-        </button>
-
-        <button
-            class="offer-tab"
-            onclick="filterOffers('bus', this)"
-        >
-            🚌 Bus
-        </button>
-
-        <button
-            class="offer-tab"
-            onclick="filterOffers('special', this)"
-        >
-            ⭐ Special
-        </button>
-
-        <button
-            class="offer-tab"
-            onclick="filterOffers('payment', this)"
-        >
-            💳 Payment
-        </button>
-
-    </div>
-
-
-    <div class="offers-container">
-
-
-        <!-- OFFER 1 -->
-
-        <div
-            class="offer-card offer-card-1"
-            data-type="bus"
-        >
-
-            <div class="offer-text">
-
-                <span class="offer-type">
-                    Bus
-                </span>
-
-                <h3>
-                    Save up to ₹250 on bus tickets
-                </h3>
-
-                <p>
-                    Valid till 31 Oct
-                </p>
-
-                <div class="coupon-code">
-
-                    <span class="coupon-icon">
-                        🏷
-                    </span>
-
-                    <strong>
-                        NESSUS250
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="bus-illustration">
-
-                <div class="bus-body">
-
-                    <div class="bus-window"></div>
-
-                    <div class="bus-front"></div>
-
-                    <div class="bus-light"></div>
-
-                </div>
-
-                <div class="bus-wheel bus-wheel-1"></div>
-
-                <div class="bus-wheel bus-wheel-2"></div>
-
-            </div>
-
-        </div>
-
-
-        <!-- OFFER 2 -->
-
-        <div
-            class="offer-card offer-card-2"
-            data-type="bus"
-        >
-
-            <div class="offer-text">
-
-                <span class="offer-type">
-                    Bus
-                </span>
-
-                <h3>
-                    Save up to ₹300 on bus tickets
-                </h3>
-
-                <p>
-                    Valid till 31 Oct
-                </p>
-
-                <div class="coupon-code">
-
-                    <span class="coupon-icon">
-                        🏷
-                    </span>
-
-                    <strong>
-                        BUS300
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="bus-illustration">
-
-                <div class="bus-body">
-
-                    <div class="bus-window"></div>
-
-                    <div class="bus-front"></div>
-
-                    <div class="bus-light"></div>
-
-                </div>
-
-                <div class="bus-wheel bus-wheel-1"></div>
-
-                <div class="bus-wheel bus-wheel-2"></div>
-
-            </div>
-
-        </div>
-
-
-        <!-- OFFER 3 -->
-
-        <div
-            class="offer-card offer-card-3"
-            data-type="special"
-        >
-
-            <div class="offer-text">
-
-                <span class="offer-type">
-                    Special
-                </span>
-
-                <h3>
-                    Save up to ₹200 on weekend journeys
-                </h3>
-
-                <p>
-                    Valid till 31 Oct
-                </p>
-
-                <div class="coupon-code">
-
-                    <span class="coupon-icon">
-                        🏷
-                    </span>
-
-                    <strong>
-                        WEEKEND200
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="weekend-badge">
-
-                <span>
-                    NESSUS
-                </span>
-
-                <strong>
-                    WEEKEND
-                </strong>
-
-                <span>
-                    OFFER
-                </span>
-
-            </div>
-
-        </div>
-
-
-        <!-- OFFER 4 -->
-
-        <div
-            class="offer-card offer-card-4"
-            data-type="payment"
-        >
-
-            <div class="offer-text">
-
-                <span class="offer-type">
-                    Payment
-                </span>
-
-                <h3>
-                    Save up to ₹500 on selected payments
-                </h3>
-
-                <p>
-                    Valid till 31 Oct
-                </p>
-
-                <div class="coupon-code">
-
-                    <span class="coupon-icon">
-                        🏷
-                    </span>
-
-                    <strong>
-                        NESSUS500
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="payment-card-icon"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     POPULAR DESTINATIONS
-===================================================== -->
-
-<section class="cities-section">
-
-    <div class="section-heading">
-
-        <h2>
-            Popular Destinations
-        </h2>
-
-        <p>
-            Explore popular routes from Nessus Tours & Travels
-        </p>
-
-    </div>
-
-
-    <div class="cities">
-
-
-        <!-- KOLHAPUR -->
-
-        <div
-            class="city-card"
-            onclick="selectCity('Kolhapur')"
-        >
-
-            <div class="city-icon">
-                🏛️
-            </div>
-
-            <div>
-
-                <h3>
-                    Kolhapur
-                </h3>
-
-                <p>
-                    Maharashtra
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- PUNE -->
-
-        <div
-            class="city-card"
-            onclick="selectCity('Pune')"
-        >
-
-            <div class="city-icon">
-                🏙️
-            </div>
-
-            <div>
-
-                <h3>
-                    Pune
-                </h3>
-
-                <p>
-                    Maharashtra
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- MUMBAI -->
-
-        <div
-            class="city-card"
-            onclick="selectCity('Mumbai')"
-        >
-
-            <div class="city-icon">
-                🌆
-            </div>
-
-            <div>
-
-                <h3>
-                    Mumbai
-                </h3>
-
-                <p>
-                    Maharashtra
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
-<section class="features">
-
-
-    <div class="feature-card">
-
-        <div class="feature-icon">
-            🚌
-        </div>
+    <footer>
 
         <h3>
-            Comfortable Journey
+            Technitude Tours &amp; Travels
         </h3>
 
         <p>
-            Travel comfortably with clean,
-            reliable and convenient buses.
+            Your trusted partner for safe,
+            comfortable and reliable journeys.
         </p>
-
-    </div>
-
-
-    <div class="feature-card">
-
-        <div class="feature-icon">
-            🛡️
-        </div>
-
-        <h3>
-            Secure Booking
-        </h3>
 
         <p>
-            Simple and secure booking experience
-            for all your journeys.
+            © 2026 Technitude Tours &amp; Travels.
+            All Rights Reserved.
         </p>
 
-    </div>
+    </footer>
 
 
-    <div class="feature-card">
 
-        <div class="feature-icon">
-            🎧
-        </div>
+    <!-- ================= JAVASCRIPT ================= -->
 
-        <h3>
-            24/7 Support
-        </h3>
+    <script>
 
-        <p>
-            Our support team is available whenever
-            you need assistance.
-        </p>
 
-    </div>
+        /* =========================================
+           AVAILABLE CITIES
+        ========================================= */
 
-</section>
+        const cities = [
+            "Kolhapur",
+            "Pune",
+            "Mumbai",
+            "Nashik",
+            "Nagpur",
+            "Satara",
+            "Sangli",
+            "Goa"
+        ];
 
 
 
-<!-- =====================================================
-     WHATSAPP
-===================================================== -->
+        /* =========================================
+           CREATE CITY OPTIONS
+        ========================================= */
 
-<div
-    class="whatsapp"
-    onclick="openWhatsApp()"
-    title="Contact us"
->
-    ☎
-</div>
+        function createCityOptions(
+            selectedCity = "",
+            excludedCity = ""
+        ) {
 
+            let html =
+                '<option value="">Select city</option>';
 
+            cities.forEach(function(city) {
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+                if (city !== excludedCity) {
 
-<footer>
-
-    <h3>
-        Nessus Tours & Travels
-    </h3>
-
-    <p>
-        Your trusted partner for safe,
-        comfortable and reliable journeys.
-    </p>
-
-    <p>
-        © 2026 Nessus Tours & Travels.
-        All Rights Reserved.
-    </p>
-
-</footer>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-
-    /* =====================================================
-       SET MINIMUM DATE
-    ===================================================== */
-
-    const today =
-        new Date()
-        .toISOString()
-        .split("T")[0];
-
-
-    document
-        .getElementById("journeyDate")
-        .min = today;
-
-
-    document
-        .getElementById("returnDate")
-        .min = today;
-
-
-
-    /* =====================================================
-       JOURNEY DATE CHANGE
-    ===================================================== */
-
-    document
-        .getElementById("journeyDate")
-        .addEventListener(
-            "change",
-            function () {
-
-                document
-                    .getElementById("returnDate")
-                    .min = this.value;
-
-            }
-        );
-
-
-
-    /* =====================================================
-       SWAP CITIES
-    ===================================================== */
-
-    document
-        .getElementById("swapBtn")
-        .addEventListener(
-            "click",
-            function () {
-
-                const from =
-                    document.getElementById("origin");
-
-                const to =
-                    document.getElementById("destination");
-
-
-                const temp =
-                    from.value;
-
-
-                from.value =
-                    to.value;
-
-
-                to.value =
-                    temp;
-
-            }
-        );
-
-
-
-    /* =====================================================
-       SEARCH
-    ===================================================== */
-
-    document
-        .getElementById("searchForm")
-        .addEventListener(
-            "submit",
-            function(event) {
-
-                event.preventDefault();
-
-
-                const from =
-                    document
-                    .getElementById("origin")
-                    .value;
-
-
-                const to =
-                    document
-                    .getElementById("destination")
-                    .value;
-
-
-                const journey =
-                    document
-                    .getElementById("journeyDate")
-                    .value;
-
-
-                const returnDate =
-                    document
-                    .getElementById("returnDate")
-                    .value;
-
-
-                if (!from || !to || !journey) {
-
-                    alert(
-                        "Please select From, To and Journey Date."
-                    );
-
-                    return;
+                    html += `
+                        <option
+                            value="${city}"
+                            ${city === selectedCity ? "selected" : ""}
+                        >
+                            ${city}
+                        </option>
+                    `;
                 }
 
+            });
 
-                if (from === to) {
+            return html;
+        }
 
-                    alert(
-                        "From and To cities cannot be the same."
-                    );
 
-                    return;
+
+        /* =========================================
+           CREATE FROM / TO COMPONENT
+        ========================================= */
+
+        function createFromToSection() {
+
+            const container =
+                document.getElementById("fromToSection");
+
+            if (!container) {
+                return;
+            }
+
+
+            container.innerHTML = `
+
+                <div class="search-item">
+
+                    <label for="origin">
+                        From
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🚌
+                        </span>
+
+                        <select
+                            id="origin"
+                            name="origin"
+                            required
+                        >
+
+                            ${createCityOptions()}
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="swap"
+                    id="swapBtn"
+                    title="Swap cities"
+                    aria-label="Swap cities"
+                >
+                    ⇄
+                </button>
+
+
+                <div class="search-item">
+
+                    <label for="destination">
+                        To
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            📍
+                        </span>
+
+                        <select
+                            id="destination"
+                            name="destination"
+                            required
+                        >
+
+                            ${createCityOptions()}
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            setupFromToEvents();
+        }
+
+
+
+        /* =========================================
+           REFRESH CITY OPTIONS
+
+           If From = Pune
+           Pune will NOT appear in To.
+
+           If To = Mumbai
+           Mumbai will NOT appear in From.
+        ========================================= */
+
+        function refreshCityOptions() {
+
+            const from =
+                document.getElementById("origin");
+
+            const to =
+                document.getElementById("destination");
+
+            if (!from || !to) {
+                return;
+            }
+
+
+            const fromValue = from.value;
+            const toValue = to.value;
+
+
+            from.innerHTML =
+                createCityOptions(
+                    fromValue,
+                    toValue
+                );
+
+
+            to.innerHTML =
+                createCityOptions(
+                    toValue,
+                    fromValue
+                );
+
+
+            from.value = fromValue;
+            to.value = toValue;
+        }
+
+
+
+        /* =========================================
+           FROM / TO EVENTS
+        ========================================= */
+
+        function setupFromToEvents() {
+
+            const from =
+                document.getElementById("origin");
+
+            const to =
+                document.getElementById("destination");
+
+            const swap =
+                document.getElementById("swapBtn");
+
+
+            if (!from || !to || !swap) {
+                return;
+            }
+
+
+            from.addEventListener(
+                "change",
+                refreshCityOptions
+            );
+
+
+            to.addEventListener(
+                "change",
+                refreshCityOptions
+            );
+
+
+            /* SWAP */
+
+            swap.addEventListener(
+                "click",
+                function() {
+
+                    const fromValue =
+                        from.value;
+
+                    const toValue =
+                        to.value;
+
+
+                    from.innerHTML =
+                        createCityOptions(
+                            toValue,
+                            fromValue
+                        );
+
+
+                    to.innerHTML =
+                        createCityOptions(
+                            fromValue,
+                            toValue
+                        );
+
+
+                    from.value = toValue;
+                    to.value = fromValue;
+
                 }
+            );
+        }
 
 
-                let message =
-                    "Searching buses from " +
+
+        /* =========================================
+           INITIALIZE FROM / TO
+        ========================================= */
+
+        createFromToSection();
+
+
+
+ /* =========================================
+   JOURNEY DATE
+========================================= */
+
+const journeyDate = document.getElementById("journeyDate");
+
+if (journeyDate) {
+
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+
+    const today = `${year}-${month}-${day}`;
+
+    journeyDate.min = today;
+
+    journeyDate.addEventListener("click", function () {
+        if (typeof this.showPicker === "function") {
+            this.showPicker();
+        }
+    });
+}
+
+
+
+        /* =========================================
+           SEARCH FORM
+        ========================================= */
+
+        document
+    .getElementById("searchForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const from =
+            document.getElementById("origin").value;
+
+        const to =
+            document.getElementById("destination").value;
+
+        const journey =
+            document.getElementById("journeyDate").value;
+
+
+        /* Validation */
+
+        if (!from || !to || !journey) {
+            alert("Please select From, To and Journey Date.");
+            return;
+        }
+
+
+        if (from === to) {
+            alert("From and To cities cannot be the same.");
+            return;
+        }
+
+
+        /* Search buses from Python Flask */
+
+        try {
+
+            const response = await fetch(
+                "http://127.0.0.1:5000/api/search",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        from: from,
+                        to: to,
+                        journey_date: journey
+                    })
+                }
+            );
+
+
+            const data = await response.json();
+
+
+            if (!data.success) {
+
+                alert(
+                    "Error: " +
+                    data.error
+                );
+
+                return;
+            }
+
+
+            /* No buses found */
+
+            if (data.buses.length === 0) {
+
+                alert(
+                    "No buses available from " +
                     from +
                     " to " +
                     to +
                     " on " +
-                    journey;
+                    journey
+                );
 
-
-                if (returnDate) {
-
-                    message +=
-                        " with return on " +
-                        returnDate;
-
-                }
-
-
-                alert(message);
-
+                return;
             }
-        );
 
 
+            /* Show buses */
 
-    /* =====================================================
-       CITY CARD
-    ===================================================== */
-
-    function selectCity(city) {
-
-        document
-            .getElementById("destination")
-            .value = city;
+            let busMessage =
+                "Available Buses:\\n\\n";
 
 
-        document
-            .querySelector(".search-box")
-            .scrollIntoView({
-                behavior: "smooth",
-                block: "center"
+            data.buses.forEach(function(bus) {
+
+                busMessage +=
+                    "Bus: " +
+                    bus.bus_name +
+                    "\\n" +
+
+                    "Type: " +
+                    bus.bus_type +
+                    "\\n" +
+
+                    "Departure: " +
+                    bus.departure_time +
+                    "\\n" +
+
+                    "Arrival: " +
+                    bus.arrival_time +
+                    "\\n" +
+
+                    "Price: ₹" +
+                    bus.price +
+                    "\\n\\n";
+
             });
 
-    }
 
+            alert(busMessage);
 
+        }
 
-    /* =====================================================
-       OFFER FILTER
-    ===================================================== */
+        catch (error) {
 
-    function filterOffers(type, button) {
+            console.error(error);
 
-        const cards =
-            document.querySelectorAll(
-                ".offer-card"
+            alert(
+                "Cannot connect to Technitude server. " +
+                "Please make sure Python Flask is running."
             );
 
+        }
 
-        const tabs =
-            document.querySelectorAll(
-                ".offer-tab"
+    });
+
+
+        /* =========================================
+           POPULAR CITY CARD
+        ========================================= */
+
+        function selectCity(city) {
+
+            const from =
+                document.getElementById("origin");
+
+            const to =
+                document.getElementById("destination");
+
+
+            if (!from || !to) {
+                return;
+            }
+
+
+            /*
+                If From is empty,
+                clicked city becomes To.
+            */
+
+            if (!from.value) {
+
+                to.value = city;
+
+                refreshCityOptions();
+
+            }
+
+            /*
+                If From already has a city,
+                clicked city becomes To.
+            */
+
+            else if (from.value !== city) {
+
+                to.value = city;
+
+                refreshCityOptions();
+
+            }
+
+
+            document
+                .querySelector(".search-box")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+        }
+
+
+
+        /* =========================================
+           OFFER FILTER
+        ========================================= */
+
+        function filterOffers(
+            type,
+            button
+        ) {
+
+            const cards =
+                document.querySelectorAll(
+                    ".offer-card"
+                );
+
+            const tabs =
+                document.querySelectorAll(
+                    ".offer-tab"
+                );
+
+
+            tabs.forEach(function(tab) {
+
+                tab.classList.remove("active");
+
+            });
+
+
+            button.classList.add("active");
+
+
+            cards.forEach(function(card) {
+
+                const cardType =
+                    card.getAttribute(
+                        "data-type"
+                    );
+
+
+                if (
+                    type === "all" ||
+                    cardType === type
+                ) {
+
+                    card.style.display =
+                        "block";
+
+                } else {
+
+                    card.style.display =
+                        "none";
+                }
+
+            });
+        }
+
+
+
+        /* =========================================
+           WHATSAPP
+        ========================================= */
+
+        function openWhatsApp() {
+
+            window.open(
+                "https://wa.me/919999999999",
+                "_blank"
             );
 
-
-        tabs.forEach(function(tab) {
-
-            tab.classList.remove("active");
-
-        });
+        }
 
 
-        button.classList.add("active");
-
-
-        cards.forEach(function(card) {
-
-            const cardType =
-                card.getAttribute("data-type");
-
-
-            if (type === "all") {
-
-                card.style.display = "block";
-
-            }
-
-            else if (cardType === type) {
-
-                card.style.display = "block";
-
-            }
-
-            else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-    }
-
-
-
-    /* =====================================================
-       WHATSAPP
-    ===================================================== */
-
-    function openWhatsApp() {
-
-        window.open(
-            "https://wa.me/919999999999",
-            "_blank"
-        );
-
-    }
-
-
-    /* =====================================================
-       LOGO HOME SAFETY
-       
-       Clicking the logo will ALWAYS return to index.html.
-    ===================================================== */
-
-    document
-        .querySelector(".logo")
-        .addEventListener(
-            "click",
-            function(event) {
-
-                event.preventDefault();
-
-                window.location.href =
-                    "./home.html";
-
-            }
-        );
-
-
-</script>
-
+    </script>
 
 </body>
+
 </html>
